@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "color": {
+    "background": "#080E19",
+    "sidebar": "#0A101C",
+    "surface": "#0E1827",
+    "raised": "#132035",
+    "overlay": "#172740",
+    "border": "#24354E",
+    "text": "#F0F4FC",
+    "muted": "#A1B0C6",
+    "disabled": "#7D8EA8",
+    "primary": "#2262DC",
+    "primaryHover": "#2768E6",
+    "accent": "#78D7F0",
+    "success": "#6ED6AB",
+    "warning": "#F5CB78",
+    "danger": "#FF9B9B",
+    "info": "#8DB8FF"
+  },
+  "typography": {
+    "interface": "Geist",
+    "technical": "Geist Mono",
+    "scale": [
+      9,
+      10,
+      11,
+      12,
+      14,
+      16,
+      20,
+      24,
+      30,
+      34,
+      43,
+      54,
+      70
+    ],
+    "financialNumbers": "tabular-nums"
+  },
+  "spacing": {
+    "unit": 4,
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32,
+    "section": 48
+  },
+  "radius": {
+    "control": 8,
+    "card": 12,
+    "dialog": 14,
+    "device": 24
+  },
+  "shadow": {
+    "panel": "0 16px 48px #0003",
+    "dialog": "0 30px 90px #0009"
+  },
+  "motion": {
+    "press": 120,
+    "dialog": 180,
+    "toast": 160,
+    "plate": 5000,
+    "easeOut": [
+      0.23,
+      1,
+      0.32,
+      1
+    ],
+    "easeInOut": [
+      0.77,
+      0,
+      0.175,
+      1
+    ],
+    "reduced": "no movement or decorative animation"
+  },
+  "breakpoints": {
+    "compact": 360,
+    "mobile": 700,
+    "tablet": 960,
+    "desktop": 1200,
+    "wide": 1500
+  }
+}

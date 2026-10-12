@@ -1,0 +1,119 @@
+# OBJETIVO E USO OBRIGATÓRIO DAS SKILLS
+
+Construa a UI/UX do GymCore com os requisitos abaixo. Entregue uma primeira versão funcional no projeto disponível, acompanhada das especificações de design e implementação. Não encerre a tarefa apenas com um conceito, plano ou wireframe textual.
+
+Leia e aplique as seguintes skills instaladas no Codex, cada uma na etapa correspondente:
+
+- $frontend-design: concepção visual e implementação do frontend web. Defina uma direção autoral coerente com a identidade escura, o universo fitness e os requisitos deste prompt. Preserve a stack e as convenções do projeto existente. Para Flutter, adapte os princípios visuais à plataforma; não use instruções específicas de HTML/CSS como se fossem APIs Flutter.
+- $emil-design-eng: refinamento de componentes, microinterações, animações, gestos e transições. Avalie finalidade e frequência antes de animar. Priorize resposta imediata em fluxos operacionais e atalhos de teclado. Use movimento expressivo onde agrega valor, especialmente na landing page e em celebrações ocasionais. Nas revisões dessa skill, apresente os ajustes em tabela Antes | Depois | Por quê.
+- $web-design-guidelines: revisão final do código das interfaces web, com as diretrizes atuais recuperadas da fonte indicada na skill. Corrija os problemas encontrados dentro do escopo e apresente achados remanescentes com arquivo e linha. Se a fonte estiver indisponível, informe a limitação e faça uma revisão geral sem afirmar conformidade verificada. No Flutter, faça uma revisão específica da plataforma; não declare conformidade web como validação do app nativo.
+- $design-handoff: documentação final para engenharia, usando os tokens, componentes, estados, breakpoints e comportamentos efetivamente implementados. Diferencie o que foi implementado, o que é proposta e o que depende de integração futura. Inclua as especificações de Flutter mesmo quando o repositório disponível for apenas web.
+
+Mencione brevemente no início as skills que serão utilizadas. Se alguma estiver indisponível, informe qual e prossiga com as disponíveis, sem alegar que a aplicou. O nome da skill é uma referência de invocação, não um comando de shell.
+
+Os requisitos explícitos deste prompt prevalecem sobre preferências genéricas das skills. Preserve a marca e os padrões do projeto quando existirem; interprete as sugestões de estética e motion no contexto do GymCore. Não force efeitos, novas bibliotecas, mudanças de framework ou integrações externas apenas para seguir um exemplo de skill.
+
+# EXECUÇÃO NO PROJETO
+
+1. Inspecione a estrutura do projeto e suas instruções locais. Identifique stack, telas, componentes, tokens e comandos de execução existentes antes de editar.
+2. Se houver projetos web e Flutter, implemente as superfícies nas stacks correspondentes. Se houver apenas um, implemente nele e documente a outra plataforma no handoff. Sem projeto existente, crie um protótipo web executável de Next.js com as telas-chave e prévias responsivas das superfícies do aluno e do tablet; identifique essas prévias como protótipos web, sem apresentá-las como um app Flutter pronto.
+3. Entregue os fluxos críticos navegáveis e os estados relevantes, com dados fictícios realistas quando não houver backend. Identifique as simulações de pagamento, assinatura, biometria, QR de acesso, mensagens e integrações. Não faça cobranças, não envie mensagens reais e não altere serviços externos por causa deste prompt.
+4. A landing page é desejável: implemente-a se couber no projeto e no escopo sem prejudicar as telas obrigatórias. Para 3D, implemente a solução viável com carregamento sob demanda e fallback; documente como proposta os conceitos que exigirem assets ou integrações indisponíveis.
+5. Verifique a execução e os fluxos principais com as ferramentas disponíveis. Confira responsividade, navegação por teclado, foco, contraste, estados de acesso e redução de movimento. Diferencie verificações feitas de metas ainda não medidas: não afirme WCAG AA, 60 fps ou orçamento de performance atendido sem evidência.
+6. Execute a revisão com $web-design-guidelines e o refinamento com $emil-design-eng, corrija problemas encontrados e finalize o handoff com $design-handoff. Não publique ou faça deploy automaticamente.
+
+# PAPEL
+
+Você é um(a) Diretor(a) de Design de Produto sênior, com experiência em design systems, motion design, interfaces 3D para web/mobile e branding. Seu trabalho é conceber e implementar a identidade visual e a experiência completa do GymCore, uma plataforma SaaS de gestão para academias. O resultado precisa parecer um produto premium, autoral e memorável. Nada de template genérico de dashboard.
+
+# CONTEXTO DO PRODUTO
+
+GymCore é um sistema multi-academia (multi-tenant) que substitui planilhas e WhatsApp manual. Cobre: cadastro de alunos, matrícula e renovação com contrato digital, cobrança (Pix, boleto, cartão recorrente), inadimplência com régua automática, controle de acesso (QR Code, CPF, biometria facial, catraca), agenda de aulas com reserva e lista de espera, treinos e fichas, avaliação física com evolução, comunicação (WhatsApp e push), professores e comissões, financeiro, PDV, leads/aulas experimentais e relatórios gerenciais. Integra-se com Wellhub e TotalPass.
+
+## Superfícies a desenhar e implementar conforme o projeto disponível
+1. **Painel web (Next.js)**: gestão e recepção. Uso intenso, desktop, tablet e telas grandes de recepção.
+2. **App do aluno (Flutter, iOS/Android)**: ponto de contato diário. Treino, QR Code de check-in, reservas de aula, evolução física, mensalidades, mural de avisos.
+3. **Tela do tablet/recepção**: check-in rápido, modo offline visível, feedback imediato de acesso permitido ou negado.
+4. **Site/landing page de apresentação do produto** (opcional, mas desejável): usada para vender o GymCore às academias.
+
+## Perfis de usuário
+- **Gestor**: quer decidir com dados (churn, receita, inadimplência, conversão).
+- **Recepção**: quer rapidez, poucos cliques, zero ambiguidade.
+- **Professor**: monta fichas, acompanha alunos, vê comissões.
+- **Aluno**: quer treinar, reservar, pagar e ver a própria evolução, de forma prazerosa e motivadora.
+
+# REQUISITOS OBRIGATÓRIOS DE DESIGN
+
+## 1. Paleta: escura, com preto e azul escuro como protagonistas
+- Base em preto profundo e azul-marinho/azul-noite. Evite cinzas neutros frios e sem personalidade.
+- Defina a paleta completa com valores HEX: fundos (3 a 4 níveis de elevação), superfícies, bordas, texto (primário, secundário, desabilitado), um azul de destaque (ação principal) e um acento secundário sutil e controlado, como ciano elétrico ou azul gelo, para realces e dados.
+- Defina cores semânticas para sucesso (pago/permitido), alerta (vence em breve), erro (inadimplente/acesso negado) e informação. Elas devem harmonizar com o fundo escuro e manter contraste adequado.
+- Use gradientes sutis, luzes de borda (rim light), brilhos suaves (glow) e profundidade por camadas. Evite preto chapado sem vida.
+- Entregue contraste mínimo WCAG AA em todos os pares texto/fundo e indique onde foi necessário ajustar.
+- Preveja um modo claro apenas como secundário, se fizer sentido, mantendo o escuro como identidade principal.
+
+## 2. Animações 3D que remetam a academia
+Proponha e especifique conceitos de 3D ligados ao universo fitness, e indique onde cada um aparece:
+- Halteres, anilhas/discos, kettlebells, barras, cordas navais ou outros elementos de academia renderizados em 3D, com materiais metálicos escuros (aço escovado, borracha, cromo azulado), iluminação dramática e reflexos suaves.
+- Ideias de aplicação: hero da landing page com halter ou anilha girando e reagindo ao scroll/cursor; loading states em que anilhas se empilham ou um halter faz uma repetição; tela de check-in com catraca/QR em 3D e animação de "acesso liberado"; estado vazio com objeto 3D ocioso; celebração de meta batida (anilha que encaixa na barra); gráfico de evolução corporal com elementos volumétricos.
+- Para cada animação 3D, especifique: objeto, gatilho, duração, easing, loop ou não, e a alternativa leve (Lottie, sprite ou CSS) para dispositivos fracos.
+- Informe a tecnologia sugerida (por exemplo Three.js / React Three Fiber / Spline no web; Rive, Lottie ou Flutter com renderização 3D leve no app) e os limites de performance: meta de 60 fps, orçamento de polígonos, texturas comprimidas, carregamento sob demanda.
+- Respeite `prefers-reduced-motion`: ofereça versão estática ou simplificada.
+- O 3D é um diferencial, mas nunca pode atrapalhar tarefas operacionais da recepção. Telas de trabalho intenso usam 3D de forma discreta ou nenhuma.
+
+## 3. Fluidez entre telas
+- Defina uma linguagem de movimento coerente: princípios (rápido, físico, com peso, como um equipamento bem lubrificado), curvas de easing, durações por tipo de interação (microinteração, transição de tela, transição de contexto) e escalonamento (stagger).
+- Especifique transições compartilhadas entre telas (shared element / hero transitions), por exemplo: card de aluno que se expande no perfil, plano que "sobe" para virar o contrato, QR Code que cresce para tela cheia.
+- Navegação sem "saltos": skeletons em vez de spinners, atualizações otimistas, estados de transição entre loading, vazio, erro e sucesso.
+- Gestos naturais no app (arrastar para cancelar reserva, pull-to-refresh, bottom sheets com física de mola).
+- Descreva o fluxo de 4 jornadas críticas quadro a quadro, indicando a transição entre cada tela:
+  a) Aluno abre o app, faz check-in por QR Code e vê o acesso liberado.
+  b) Aluno reserva uma aula, entra na lista de espera e é promovido.
+  c) Recepção matricula um aluno novo (cadastro, plano, contrato, assinatura, primeira cobrança).
+  d) Gestor abre o dashboard, identifica inadimplentes por faixa de atraso e dispara a régua de cobrança.
+
+## 4. Logo e logomarcas personalizadas
+- Crie o conceito de marca do GymCore: nome, significado, personalidade (forte, preciso, confiável, moderno), tom de voz.
+- Entregue 3 direções de logo, com racional para cada uma, e recomende uma. Explore a fusão entre o conceito de "core" (núcleo, força central, energia) e elementos de academia (anilha, halter, silhueta de repetição, pulso, "G" e "C" combinados).
+- Para a direção recomendada, descreva em detalhe: símbolo, logotipo (tipografia customizada ou ajustada), versões (horizontal, vertical, só símbolo, monocromática, sobre fundo escuro e claro), área de respiro, tamanho mínimo, ícone do app (iOS/Android) e favicon.
+- Descreva a versão animada do logo (abertura/splash e loading).
+- Preveja o sistema de **marca por academia** (white-label leve): como o logo e a cor de cada academia cliente convivem com a identidade do GymCore no painel, no app do aluno e nos contratos/e-mails.
+- Crie um conjunto de ícones próprio para o produto (estilo, espessura de traço, grid, cantos), incluindo ícones específicos de academia (aluno, catraca, ficha de treino, avaliação física, cobrança, lead, comissão, QR).
+- Se possível, forneça o SVG do símbolo ou um brief detalhado o suficiente para um designer finalizar.
+
+## 5. Tipografia, grid e componentes
+- Escolha de 2 famílias no máximo (uma de display com personalidade, uma de interface muito legível, com números tabulares para valores financeiros). Justifique e indique alternativas gratuitas (Google Fonts).
+- Escala tipográfica, grid, espaçamento (base 4 ou 8 pt), raios, sombras/elevações adaptadas ao tema escuro.
+- Biblioteca de componentes com estados (padrão, hover, foco, ativo, desabilitado, carregando, erro): botões, inputs, selects, tabelas densas, filtros, cards, badges de status, tabs, modais, bottom sheets, toasts, calendário/grade de aulas, gráficos, linha do tempo, stepper de matrícula.
+- Tokens de design exportáveis (JSON ou variáveis CSS) compatíveis com Tailwind CSS e shadcn/ui no web e com ThemeData no Flutter.
+
+# TELAS-CHAVE A ENTREGAR
+
+**Painel web:** login, dashboard gerencial (6 a 8 indicadores: alunos ativos, churn, receita, inadimplência, frequência, conversão de leads), lista e perfil do aluno, matrícula com contrato digital, painel de inadimplência com faixas de atraso e régua, grade de aulas, funil de leads (kanban), fechamento de comissões, financeiro/fluxo de caixa, PDV.
+**App do aluno:** onboarding, home, QR Code de check-in, treino do dia com registro de carga e série, reserva de aulas, evolução física (fotos e gráficos comparativos), mensalidades e Pix, mural de avisos, perfil.
+**Tablet de recepção:** check-in por CPF/QR/facial com estados "permitido", "negado (motivo)" e "modo offline".
+
+# PRINCÍPIOS E RESTRIÇÕES
+
+- **Anti-genérico:** proíbo o visual padrão de "SaaS roxo com gradiente", cards cinza idênticos e ilustrações de banco de imagens. Cada tela deve ter uma decisão visual intencional ligada ao universo de academia (força, ritmo, repetição, metal, suor, disciplina).
+- **Clareza primeiro:** o tema escuro e o 3D servem ao produto, não o contrário. Dados financeiros e de acesso precisam ser lidos em segundos.
+- **Estados de acesso inequívocos:** permitido e negado devem ser distinguíveis por cor, ícone, texto e som/vibração, não só por cor.
+- **Acessibilidade:** contraste AA, alvos de toque de pelo menos 44 px, foco visível, suporte a leitores de tela, redução de movimento.
+- **Dados sensíveis (LGPD):** a UI de dados de saúde e biometria deve comunicar consentimento, restrição de acesso e privacidade de forma clara, sem alarmismo.
+- **Performance:** o 3D carrega sob demanda, com fallback; o painel não pode travar em máquinas simples de recepção.
+- **Multi-tenant:** o design suporta a identidade de cada academia sem quebrar a consistência do sistema.
+
+# FORMATO DA ENTREGA
+
+Salve a documentação de design e handoff no projeto, organizada na ordem abaixo. Entregue também o código funcional. Na resposta final, informe como executar, arquivos principais, verificações realizadas, limitações e integrações simuladas; use links para a documentação em vez de reproduzi-la integralmente:
+1. **Conceito criativo** (nome do conceito, manifesto em 5 linhas, moodboard em palavras: materiais, luz, texturas, referências de atmosfera).
+2. **Identidade de marca**: 3 direções de logo, recomendação, sistema de logo, ícones, versão animada, white-label por academia.
+3. **Design tokens**: paleta com HEX, tipografia, espaçamento, raios, elevações, motion tokens (em JSON ou CSS).
+4. **Linguagem de movimento e catálogo de animações 3D** (tabela: onde aparece, objeto, gatilho, duração, easing, tecnologia, fallback).
+5. **Jornadas críticas** quadro a quadro, com transições entre telas.
+6. **Especificação das telas-chave** (layout, hierarquia, componentes, estados, microinterações), com referência às telas e ao código implementados. Use wireframes textuais apenas para propostas ainda não implementadas.
+7. **Biblioteca de componentes** com estados.
+8. **Guia de implementação** para Next.js + Tailwind + shadcn/ui e para Flutter (bibliotecas sugeridas para animação e 3D, orçamento de performance).
+9. **Revisão de acessibilidade e qualidade visual**: resultados de $web-design-guidelines para web, refinamentos de $emil-design-eng em tabela Antes | Depois | Por quê, correções realizadas e itens ainda não verificados.
+
+Para ambiguidades de design ou implementação reversível, assuma uma decisão autoral compatível com o produto e justifique em uma linha. Prossiga sem perguntas iniciais quando houver informação suficiente. Se faltar autorização, acesso ou informação indispensável, avance no trabalho independente e explique o impedimento específico. Não trate uma suposição como autorização para ações externas.

@@ -1,0 +1,17 @@
+.next/
+node_modules/
+.env*
+!.env.example
+*.tsbuildinfo
+playwright-report/
+test-results/
+.browser-qa/
+.npm-cache/
+.browser-qa-2/
+
+# Estado local do navegador e ferramentas
+.browser-qa*/
+.npm-cache/
+*.log
+.DS_Store
+Thumbs.db

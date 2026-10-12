@@ -1,0 +1,366 @@
+{
+  "checkedAt": "2026-10-12T21:42:11.183Z",
+  "routes": 22,
+  "viewports": [
+    1440,
+    768,
+    390
+  ],
+  "serverMode": "production",
+  "results": [
+    {
+      "name": "1440px /painel renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/alunos renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/alunos/atlas-s0 renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/matriculas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/aulas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/leads renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/inadimplencia renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/financeiro renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/comissoes renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /painel/pdv renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/onboarding renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/qr renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/treino renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/aulas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/evolucao renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/mensalidades renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/avisos renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /aluno/perfil renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /recepcao renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /login renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px /site renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/alunos renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/alunos/atlas-s0 renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/matriculas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/aulas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/leads renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/inadimplencia renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/financeiro renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/comissoes renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /painel/pdv renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/onboarding renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/qr renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/treino renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/aulas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/evolucao renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/mensalidades renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/avisos renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /aluno/perfil renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /recepcao renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /login renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "768px /site renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/alunos renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/alunos/atlas-s0 renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/matriculas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/aulas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/leads renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/inadimplencia renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/financeiro renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/comissoes renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /painel/pdv renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/onboarding renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/qr renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/treino renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/aulas renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/evolucao renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/mensalidades renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/avisos renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /aluno/perfil renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /recepcao renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /login renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px /site renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "Keyboard reaches skip link",
+      "pass": true
+    },
+    {
+      "name": "Search dialog opens",
+      "pass": true
+    },
+    {
+      "name": "Escape closes dialog and restores trigger focus",
+      "pass": true
+    },
+    {
+      "name": "Tenant switch replaces dataset",
+      "pass": true
+    },
+    {
+      "name": "Signature mismatch reports an inline error",
+      "pass": true
+    },
+    {
+      "name": "Enrollment creates an active student",
+      "pass": true
+    },
+    {
+      "name": "Full class enters waiting list",
+      "pass": true
+    },
+    {
+      "name": "Mock vacancy confirms reservation",
+      "pass": true
+    },
+    {
+      "name": "Keeping reservation preserves booking",
+      "pass": true
+    },
+    {
+      "name": "Confirmed cancellation removes booking",
+      "pass": true
+    },
+    {
+      "name": "Active CPF scenario permits access",
+      "pass": true
+    },
+    {
+      "name": "Overdue CPF scenario denies access",
+      "pass": true
+    },
+    {
+      "name": "Offline never bypasses validation",
+      "pass": true
+    },
+    {
+      "name": "Collection targets selected overdue bucket",
+      "pass": true
+    },
+    {
+      "name": "Simulated settlement restores active access",
+      "pass": true
+    },
+    {
+      "name": "POS sale updates financial state",
+      "pass": true
+    },
+    {
+      "name": "Pix confirmation updates receipt without banking API",
+      "pass": true
+    },
+    {
+      "name": "Workout stores completed set",
+      "pass": true
+    },
+    {
+      "name": "Revoked consent hides physical evolution",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion disables decorative plate animation",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime exceptions",
+      "pass": true
+    },
+    {
+      "name": "No page requests to backend APIs or external services",
+      "pass": true
+    }
+  ],
+  "runtimeErrors": [],
+  "externalRequests": []
+}
