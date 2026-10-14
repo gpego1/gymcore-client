@@ -159,6 +159,7 @@ try {
   await evaluate('localStorage.removeItem("gymcore-demo-v2")');
   await navigate('/painel');
   const routes = ['/painel', '/painel/alunos', '/painel/alunos/atlas-s0', '/painel/matriculas', '/painel/aulas', '/painel/leads', '/painel/inadimplencia', '/painel/financeiro', '/painel/comissoes', '/painel/pdv', '/aluno', '/aluno/onboarding', '/aluno/qr', '/aluno/treino', '/aluno/aulas', '/aluno/evolucao', '/aluno/mensalidades', '/aluno/avisos', '/aluno/perfil', '/recepcao', '/login', '/site'];
+  routes.unshift('/');
   for (const width of process.env.QA_SKIP_LAYOUT ? [] : [1440, 768, 390]) {
     await call('Emulation.setDeviceMetricsOverride', {
       width,
@@ -276,7 +277,8 @@ try {
   await navigate('/aluno/evolucao');
   record('Revoked consent hides physical evolution', await evaluate('document.body.innerText.includes("Sua evolução está protegida")'));
   await navigate('/site');
-  await until(() => evaluate('!!document.querySelector(".weight-plate")'));
+  await until(() => evaluate('document.querySelectorAll(".gym-slide img").length===3&&Array.from(document.querySelectorAll(".gym-slide img")).every(i=>i.complete&&i.naturalWidth>0)'));
+  await click('Pausar');
   await call('Emulation.setEmulatedMedia', {
     features: [{
       name: 'prefers-reduced-motion',
@@ -284,7 +286,19 @@ try {
     }]
   });
   await pause(100);
-  record('Reduced motion disables decorative plate animation', await evaluate('getComputedStyle(document.querySelector(".weight-plate")).animationName==="none"'));
+  record('Reduced motion disables carousel transitions and autoplay', await evaluate(`getComputedStyle(document.querySelector('.gym-slide')).transitionDuration==='0s'&&!document.querySelector('button[aria-label="Pausar carrossel"]')`));
+  await navigate('/');
+  record('Root opens home instead of dashboard', await evaluate('location.pathname==="/"&&!!document.querySelector(".gym-carousel")&&!document.querySelector(".app-shell")'));
+  await evaluate(`document.querySelector('button[aria-label="Próxima imagem"]').click()`);
+  await pause(100);
+  record('Carousel next selects second image', await evaluate('document.querySelector(".gym-slide.is-active").getAttribute("aria-label")==="2 de 3"'));
+  await evaluate(`document.querySelector('button[aria-label="Imagem anterior"]').focus()`);
+  await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'ArrowLeft', code: 'ArrowLeft', windowsVirtualKeyCode: 37 });
+  await pause(100);
+  record('Carousel supports keyboard navigation', await evaluate('document.querySelector(".gym-slide.is-active").getAttribute("aria-label")==="1 de 3"'));
+  const pausedSlide = await evaluate('document.querySelector(".gym-slide.is-active").getAttribute("aria-label")');
+  await pause(6700);
+  record('Reduced motion keeps carousel stationary', pausedSlide === await evaluate('document.querySelector(".gym-slide.is-active").getAttribute("aria-label")'));
   await call('Emulation.setEmulatedMedia', {
     features: []
   });
@@ -299,7 +313,7 @@ try {
   await mkdir(path.join(root, 'docs/screenshots'), {
     recursive: true
   });
-  for (const [route, name, width, height] of [['/painel', 'dashboard', 1440, 1080], ['/site', 'landing', 1440, 1000], ['/aluno', 'aluno', 390, 844], ['/recepcao', 'recepcao', 1280, 1000]]) {
+  for (const [route, name, width, height] of [['/painel', 'dashboard', 1440, 1080], ['/site', 'landing', 1440, 1000], ['/', 'inicio-mobile', 390, 844], ['/aluno', 'aluno', 390, 844], ['/recepcao', 'recepcao', 1280, 1000]]) {
     await call('Emulation.setDeviceMetricsOverride', {
       width,
       height,
@@ -307,7 +321,7 @@ try {
       mobile: width === 390
     });
     await navigate(route);
-    if (route === '/site') await until(() => evaluate('!!document.querySelector(".weight-plate")'));
+    if (route === '/site') await until(() => evaluate('document.querySelector(".gym-slide.is-active img")?.complete'));
     await pause(100);
     const screenshot = await call('Page.captureScreenshot', {
       format: 'png'

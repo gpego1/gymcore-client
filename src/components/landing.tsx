@@ -1,35 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { useEffect, useRef, useState } from 'react';
+import { GymCarousel } from './gym-carousel';
 import { Logo, Icon } from './icons';
 import { Badge, Button } from './ui';
-const Plate = dynamic(() => import('./plate'), {
-  loading: () => <div className="plate-fallback" aria-hidden="true">
-    <Icon name="dumbbell" size={120} />
-  </div>
-});
 export function Landing() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [motion, setMotion] = useState(true);
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      if (entries.some(e => e.isIntersecting)) {
-        setVisible(true);
-        observer.disconnect();
-      }
-    }, {
-      rootMargin: '100px'
-    });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
   return <div className="landing">
     <a href="#landing-main" className="skip-link">Pular para o conteúdo</a>
     <header className="landing-header">
-      <Link href="/site" aria-label="GymCore, apresentação">
+      <Link href="/" aria-label="GymCore, início">
         <Logo />
       </Link>
       <nav aria-label="Apresentação">
@@ -62,10 +41,7 @@ export function Landing() {
           <span className="hero-note">
             <Icon name="shield" size={16} />Demo navegável · sem cadastro ou cobrança</span>
         </div>
-        <div ref={ref} className={'hero-object ' + (!motion ? 'motion-paused' : '')}>{visible ? <Plate /> : <div className="plate-fallback" aria-hidden="true">
-            <Icon name="dumbbell" size={120} />
-          </div>}<Button variant="ghost" size="small" className="motion-control" onClick={() => setMotion(!motion)}>{motion ? 'Pausar' : 'Retomar'} movimento decorativo</Button>
-        </div>
+        <GymCarousel />
         <div className="hero-bottom">
           <span>PROJETADO PARA O DIA A DIA REAL.</span>
           <span>01 / GESTÃO EM MOVIMENTO</span>

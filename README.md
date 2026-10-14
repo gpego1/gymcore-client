@@ -17,7 +17,7 @@ npm ci
 npm run dev
 ```
 
-Abra **http://127.0.0.1:3000**. A raiz abre o dashboard. Para testar a versão de produção:
+Abra **http://127.0.0.1:3000**. A raiz abre a tela de início com carrossel de fotos de academias. O dashboard fica em `/painel`. Para testar a versão de produção:
 
 ```sh
 npm run build
@@ -37,7 +37,7 @@ npm run start
 | /painel/pdv | Produtos, carrinho e venda simulada |
 | /aluno | Prévia web responsiva do aluno |
 | /recepcao | Terminal demonstrativo CPF, QR e facial |
-| /site | Landing page com anilha em profundidade CSS |
+| / e /site | Tela de início com carrossel de academias |
 | /login | Entrada demonstrativa, sem autenticação |
 
 ## Prévia
@@ -92,4 +92,4 @@ A verificação de navegador usa Chrome/Edge Chromium local, sem biblioteca adic
 
 ## Limites da versão
 
-A experiência do aluno é uma **prévia web**, não um app Flutter. Login, contratos, assinatura, Pix, cobrança, mensagens, QR, reconhecimento facial, catraca, Wellhub e TotalPass são demonstrações. Não existe captura de câmera, processamento de pagamento, envio de mensagem ou autenticação real. A anilha usa camadas e transformações CSS; modelos WebGL e gestos nativos estão documentados como propostas. Não foi feito deploy.
+A experiência do aluno é uma **prévia web**, não um app Flutter. Login, contratos, assinatura, Pix, cobrança, mensagens, QR, reconhecimento facial, catraca, Wellhub e TotalPass são demonstrações. Não existe captura de câmera, processamento de pagamento, envio de mensagem ou autenticação real. A tela inicial usa fotos locais de academias; modelos WebGL e gestos nativos estão documentados como propostas. Não foi feito deploy.

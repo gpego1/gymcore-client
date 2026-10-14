@@ -2,6 +2,8 @@
 
 ## Nome e personalidade
 
+A identidade da interface usa preto como base e azul como destaque: fundos neutros escuros, ações em azul intenso e foco/links em azul claro. Cores de sucesso, alerta e erro são reservadas aos estados operacionais. A página inicial `/` apresenta fotos de academias em um carrossel; o painel de gestão permanece em `/painel`.
+
 Gym remete ao espaço de treino; Core é o centro de força, conexão e controle. A marca deve ser forte, precisa, confiável e próxima. Voz: verbos ativos, frases curtas, incentivo sem culpa. “Cada dia, mais forte.” e “Vamos em frente.” são exemplos implementados.
 
 ## Três direções

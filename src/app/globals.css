@@ -24,17 +24,18 @@
   --radius-lg: 12px
 }
 :root {
-  --bg: #080E19;
-  --sidebar: #0A101C;
-  --surface: #0E1827;
-  --surface-raised: #132035;
-  --surface-overlay: #172740;
-  --border: #24354E;
+  --bg: #08090B;
+  --sidebar: #0A0B0E;
+  --surface: #101216;
+  --surface-raised: #181B21;
+  --surface-overlay: #20242C;
+  --border: #2B303A;
   --text: #F0F4FC;
   --muted: #A1B0C6;
   --disabled: #7D8EA8;
-  --primary: #2262DC;
-  --accent: #78D7F0;
+  --primary: #2161E8;
+  --primary-hover: #2867E6;
+  --accent: #8DB8FF;
   --success: #6ED6AB;
   --warning: #F5CB78;
   --danger: #FF9B9B;
@@ -116,7 +117,7 @@ svg {
 }
 select,input,textarea {
   color: var(--text);
-  background: #0B1423;
+  background: #0D0F13;
   border: 1px solid var(--border);
   border-radius: 8px;
   min-height: 44px;
@@ -150,19 +151,19 @@ th {
   font-weight: 500;
   text-transform: uppercase;
   padding: 16px 24px;
-  background: #0B142360;
+  background: #0D0F1360;
   white-space: nowrap
 }
 td {
   padding: 17px 24px;
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   white-space: nowrap
 }
 td strong {
   font-weight: 500
 }
 tbody tr:hover {
-  background: #17274050
+  background: #20242C50
 }
 small {
   font-size: 12px
@@ -250,7 +251,7 @@ fieldset {
   box-shadow: inset 0 1px #ffffff18
 }
 .button-secondary {
-  background: #132035;
+  background: #181B21;
   border-color: var(--border);
   color: var(--text)
 }
@@ -295,7 +296,7 @@ fieldset {
   align-items: center;
   gap: 6px;
   padding: 5px 9px;
-  border: 1px solid #24354e;
+  border: 1px solid #2B303A;
   background: #142035;
   border-radius: 6px;
   font-size: 10px;
@@ -411,7 +412,7 @@ fieldset {
 }
 .panel {
   min-width: 0;
-  background: linear-gradient(125deg,#111C2D90,#0E1827);
+  background: linear-gradient(125deg,#14171C90,#101216);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden
@@ -534,7 +535,7 @@ fieldset {
   gap: 10px;
   align-items: center;
   border: 1px solid var(--border);
-  background: linear-gradient(120deg,#172941,#0F1A2B);
+  background: linear-gradient(120deg,#172941,#101216);
   border-radius: 10px;
   padding: 13px 11px;
   margin: 20px 0 16px;
@@ -581,7 +582,7 @@ fieldset {
 }
 .topbar {
   height: 82px;
-  border-bottom: 1px solid #24354E80;
+  border-bottom: 1px solid #2B303A80;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -857,7 +858,7 @@ fieldset {
   justify-content: space-between;
   gap: 10px;
   padding: 16px 24px 19px;
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   font-size: 10px;
   color: var(--muted)
 }
@@ -912,7 +913,7 @@ fieldset {
   align-items: flex-end;
   border-radius: 5px;
   overflow: hidden;
-  background: linear-gradient(#132138,#14243a60)
+  background: linear-gradient(#132138,#181B2160)
 }
 .frequency-track>span {
   display: block;
@@ -928,7 +929,7 @@ fieldset {
   color: var(--muted)
 }
 .frequency-note {
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   color: var(--muted);
   display: flex;
   gap: 8px;
@@ -952,7 +953,7 @@ fieldset {
   align-items: center;
   gap: 15px;
   padding: 17px 0;
-  border-top: 1px solid #24354E80
+  border-top: 1px solid #2B303A80
 }
 .agenda-row time {
   font-family: 'Geist Mono',monospace;
@@ -1006,7 +1007,7 @@ fieldset {
   gap: 10px;
   align-items: center;
   padding: 13px 0;
-  border-top: 1px solid #24354E80
+  border-top: 1px solid #2B303A80
 }
 .attention-row>span:nth-child(2) {
   min-width: 0;
@@ -1051,7 +1052,7 @@ fieldset {
   gap: 15px;
   padding: 21px 0;
   margin-top: 5px;
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   color: #8496B1;
   font-size: 9px
 }
@@ -1059,7 +1060,7 @@ fieldset {
   display: flex;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: #0E1827;
+  background: #101216;
   margin-bottom: 24px;
   padding: 24px;
   gap: 32px
@@ -1180,7 +1181,7 @@ fieldset {
   justify-content: space-between;
   gap: 20px;
   padding: 13px 0;
-  border-bottom: 1px solid #24354E80;
+  border-bottom: 1px solid #2B303A80;
   font-size: 12px
 }
 .detail-list dt {
@@ -1224,7 +1225,7 @@ fieldset {
   align-items: center;
   gap: 11px;
   padding: 13px 0;
-  border-bottom: 1px solid #24354E80
+  border-bottom: 1px solid #2B303A80
 }
 .exercise-icon {
   width: 40px;
@@ -1405,7 +1406,7 @@ fieldset {
   border-top: 1px solid var(--border)
 }
 .enrollment-summary {
-  background: radial-gradient(ellipse at top right,#1D3D6560,transparent 70%),#0E1827;
+  background: radial-gradient(ellipse at top right,#1D3D6560,transparent 70%),#101216;
   border: 1px solid var(--border);
   padding: 30px 24px;
   border-radius: 12px;
@@ -1492,7 +1493,7 @@ fieldset {
 }
 .contract {
   padding: 24px;
-  background: #0B1423;
+  background: #0D0F13;
   border: 1px solid var(--border);
   border-radius: 9px
 }
@@ -1593,7 +1594,7 @@ fieldset {
 .class-card {
   padding: 22px;
   text-align: left;
-  background: #0E1827;
+  background: #101216;
   border: 1px solid var(--border);
   border-radius: 11px;
   overflow: hidden;
@@ -2050,7 +2051,7 @@ fieldset {
   justify-content: center;
   align-items: flex-start;
   gap: 100px;
-  background: radial-gradient(ellipse at 30% 20%,#1A355580,transparent 55%),#080E19;
+  background: radial-gradient(ellipse at 30% 20%,#1A355580,transparent 55%),#08090B;
   padding: 40px
 }
 .student-preview-info {
@@ -2096,7 +2097,7 @@ fieldset {
 .student-device {
   width: 430px;
   min-height: 840px;
-  background: #0B1321;
+  background: #0D0F13;
   border: 1px solid #29405E;
   border-radius: 24px;
   overflow: clip;
@@ -2108,7 +2109,7 @@ fieldset {
   align-items: center;
   gap: 10px;
   padding: 21px 22px 17px;
-  border-bottom: 1px solid #24354E80;
+  border-bottom: 1px solid #2B303A80;
   background: #0D182A
 }
 .student-header>div {
@@ -2626,7 +2627,7 @@ fieldset {
 }
 .set-row {
   padding: 8px 0;
-  border-top: 1px solid #24354E80
+  border-top: 1px solid #2B303A80
 }
 .set-row>strong {
   font: 13px 'Geist Mono',monospace;
@@ -2885,7 +2886,7 @@ fieldset {
   justify-content: space-between;
   gap: 8px;
   padding: 14px 18px;
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   font-size: 10px
 }
 .payment-history strong {
@@ -3291,7 +3292,7 @@ fieldset {
   align-items: center;
   justify-content: space-between;
   padding: 27px 7%;
-  border-bottom: 1px solid #24354E80
+  border-bottom: 1px solid #2B303A80
 }
 .landing-header nav {
   display: flex;
@@ -3372,7 +3373,7 @@ fieldset {
   font: 9px 'Geist Mono',monospace;
   letter-spacing: 1.5px;
   color: #8DA3C1;
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   padding-top: 25px;
   margin-top: 20px
 }
@@ -3425,7 +3426,7 @@ fieldset {
   border-radius: 50%;
   background: radial-gradient(circle at 60% 70%,#040B15 50%,#172A45);
   border: 5px solid #596F86;
-  box-shadow: inset 4px 4px 12px #000,0 0 0 4px #132035;
+  box-shadow: inset 4px 4px 12px #000,0 0 0 4px #181B21;
   transform: translateZ(3px)
 }
 .plate-word {
@@ -3507,7 +3508,7 @@ fieldset {
 }
 .landing-product,.landing-pricing {
   padding: 85px 7%;
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   scroll-margin-top: 25px
 }
 .landing h2 {
@@ -3524,7 +3525,7 @@ fieldset {
 .landing-features>a {
   position: relative;
   padding: 34px 28px;
-  background: linear-gradient(130deg,#14243A,#0D1828);
+  background: linear-gradient(130deg,#181B21,#101216);
   border: 1px solid #2B405F;
   border-radius: 12px
 }
@@ -3559,8 +3560,8 @@ fieldset {
 }
 .landing-experiences {
   padding: 70px 12%;
-  background: radial-gradient(ellipse at 70% 60%,#1E416970,transparent 60%),#0C1626;
-  border-top: 1px solid #24354E80;
+  background: radial-gradient(ellipse at 70% 60%,#1E416970,transparent 60%),#0C0E12;
+  border-top: 1px solid #2B303A80;
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 80px;
@@ -3581,7 +3582,7 @@ fieldset {
 .landing-student-card {
   width: 285px;
   justify-self: center;
-  background: #0D1727;
+  background: #101216;
   border: 4px solid #345170;
   border-radius: 35px;
   padding: 20px;
@@ -3688,7 +3689,7 @@ fieldset {
 .pricing-grid>article {
   padding: 32px;
   border: 1px solid #2B405F;
-  background: #0E1C2F;
+  background: #101216;
   border-radius: 12px
 }
 .pricing-grid>.pricing-featured {
@@ -3738,7 +3739,7 @@ fieldset {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  border-top: 1px solid #24354E80;
+  border-top: 1px solid #2B303A80;
   padding: 35px 7%;
   color: var(--muted);
   font-size: 10px
@@ -4594,7 +4595,7 @@ fieldset {
   .student-preview {
     display: block;
     padding: 0;
-    background: #0B1321
+    background: #0D0F13
   }
   .student-preview-info {
     display: none
@@ -4971,7 +4972,7 @@ fieldset {
   display: block;
   height: 100px;
   border-radius: 12px;
-  background: linear-gradient(110deg,#132035,#1C3150);
+  background: linear-gradient(110deg,#181B21,#1C3150);
   border: 1px solid var(--border)
 }
 .route-loading {
@@ -5009,4 +5010,95 @@ html[data-input=keyboard] .button:active {
 }
 .student-header>a {
   justify-content: center
+}
+
+/* Black surfaces and electric blue form the shared GymCore identity. */
+.app-shell { background: var(--bg) }
+.panel { background: var(--surface) }
+.sidebar { border-color: var(--border) }
+.button-secondary { background: var(--surface-raised) }
+select,input,textarea { background: var(--bg) }
+.brand-dot,.brand>svg { color: var(--info) }
+.nav-item.active {
+  background: color-mix(in srgb,var(--primary) 18%,var(--sidebar));
+  border-color: color-mix(in srgb,var(--primary) 45%,var(--border));
+  color: var(--info)
+}
+.nav-item.active:before { background: var(--primary) }
+.landing { background: var(--bg) }
+.landing-header { background: var(--bg); border-bottom: 1px solid var(--border) }
+.landing .landing-hero {
+  grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+  gap: 48px;
+  padding: 58px 7% 30px;
+  background: var(--bg);
+  min-height: 680px
+}
+.hero-copy h1 { font-size: clamp(40px,4.4vw,72px); letter-spacing: -3px }
+.hero-copy h1 span { color: var(--info) }
+.hero-copy>p { color: var(--muted); max-width: 440px }
+.landing .hero-bottom { grid-column: 1/-1; border-color: var(--border) }
+.landing-features>a,.pricing-grid>article { background: var(--surface); border-color: var(--border) }
+.pricing-grid>.pricing-featured { background: color-mix(in srgb,var(--primary) 12%,var(--surface)); border-color: var(--primary) }
+.landing-experiences { background: var(--sidebar) }
+.landing-student-card { background: var(--surface); border-color: var(--border) }
+.landing-product,.landing-pricing,.landing-experiences,.landing-footer { border-color: var(--border) }
+.gym-carousel {
+  position: relative;
+  min-width: 0;
+  min-height: 510px;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  align-self: stretch
+}
+.gym-carousel-images,.gym-slide { position: absolute; inset: 0 }
+.gym-slide { opacity: 0; transition: opacity 650ms var(--ease-out) }
+.gym-slide.is-active { opacity: 1 }
+.gym-slide img { object-fit: cover; filter: saturate(.55) }
+.gym-carousel:after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg,#0009,transparent 35%,#000c 70%,#000 100%);
+  z-index: 1
+}
+.gym-carousel-label {
+  position: absolute; top: 24px; left: 24px; z-index: 2;
+  display: flex; align-items: center; gap: 9px;
+  font: 10px 'Geist Mono',monospace; letter-spacing: 1.5px; color: #fff
+}
+.gym-carousel-label>span { width: 7px; height: 7px; background: var(--info); border-radius: 50% }
+.gym-carousel-caption { position: absolute; inset: auto 28px 96px; z-index: 2; color: #fff }
+.gym-carousel-caption>span { font: 9px 'Geist Mono',monospace; letter-spacing: 1.4px; color: var(--info) }
+.landing .gym-carousel-caption h2 { font-size: clamp(28px,3vw,42px); margin: 12px 0 0; letter-spacing: -1.5px }
+.gym-carousel-controls {
+  position: absolute; inset: auto 20px 20px; display: flex; align-items: center;
+  gap: 8px; z-index: 2; border-top: 1px solid #ffffff30; padding-top: 14px
+}
+.gym-carousel-controls button {
+  display: inline-flex; justify-content: center; align-items: center;
+  min-width: 44px; min-height: 44px; padding: 0 10px;
+  background: #101216; color: #fff; border: 1px solid #ffffff30; border-radius: 7px; font-size: 11px
+}
+.gym-carousel-dots { display: flex; gap: 0; margin-right: auto }
+.gym-carousel-dots button { background: transparent; border: 0; padding: 0; min-width: 30px }
+.gym-carousel-dots button>span { width: 6px; height: 6px; background: #fff8; border-radius: 9px; transition: width 180ms }
+.gym-carousel-dots button[aria-current]>span { width: 22px; background: var(--info) }
+.gym-carousel-count { font: 10px 'Geist Mono',monospace; color: #fff; white-space: nowrap; margin-right: 4px }
+@media(hover:hover) {
+  .button-primary:hover { background: var(--primary-hover) }
+  .gym-carousel-controls button:hover { background: var(--primary) }
+}
+@media(max-width:900px) {
+  .landing .landing-hero { grid-template-columns: 1fr; gap: 36px; padding: 40px 6% 24px }
+  .hero-copy h1 { letter-spacing: -2px }
+  .gym-carousel { min-height: 440px }
+}
+@media(max-width:480px) {
+  .gym-carousel { min-height: 400px }
+  .gym-carousel-label { left: 18px; font-size: 9px }
+  .gym-carousel-caption { left: 18px; right: 18px }
+  .gym-carousel-controls { left: 12px; right: 12px; gap: 5px }
+  .gym-carousel-count { display: none }
 }

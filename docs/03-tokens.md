@@ -6,24 +6,24 @@ Fonte de verdade: `src/app/globals.css`. Exportação: [design-tokens.json](desi
 
 | Token | HEX | Uso |
 | --- | --- | --- |
-| background | #080E19 | Fundo geral |
-| sidebar | #0A101C | Navegação |
-| surface | #0E1827 | Cards e tabelas |
-| raised | #132035 | Controles e elevação |
-| overlay | #172740 | Camada superior |
-| border | #24354E | Separadores |
+| background | #08090B | Fundo geral |
+| sidebar | #0A0B0E | Navegação |
+| surface | #101216 | Cards e tabelas |
+| raised | #181B21 | Controles e elevação |
+| overlay | #20242C | Camada superior |
+| border | #2B303A | Separadores |
 | text | #F0F4FC | Texto principal |
 | muted | #A1B0C6 | Texto secundário |
 | disabled | #7D8EA8 | Placeholders, informação reduzida |
-| primary | #2262DC | Ações com texto branco |
-| primaryHover | #2768E6 | Hover de ação |
-| accent | #78D7F0 | Realce frio, foco e evolução |
+| primary | #2161E8 | Ações com texto branco |
+| primaryHover | #2867E6 | Hover de ação |
+| accent | #8DB8FF | Realce azul, foco e evolução |
 | success | #6ED6AB | Pago, ativo, permitido |
 | warning | #F5CB78 | Espera, atraso leve, offline |
 | danger | #FF9B9B | Negado e inadimplente |
 | info | #8DB8FF | Informação e links |
 
-Fundos de badges: sucesso #17352B, alerta #342C1E, erro #35202B e informação #162947. O gráfico usa #5C97FF sobre azul-noite. Sombras trabalham com preto translúcido, não elevação branca.
+Fundos de badges: sucesso #17352B, alerta #342C1E, erro #35202B e informação #162947. O gráfico usa #5C97FF sobre preto. Sombras trabalham com preto translúcido, não elevação branca.
 
 ## Tipografia
 

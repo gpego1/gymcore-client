@@ -1,4 +1,4 @@
-import { writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 const colors = {
   background: '#080E19',
   sidebar: '#0A101C',
@@ -16,6 +16,14 @@ const colors = {
   danger: '#FF9B9B',
   info: '#8DB8FF'
 };
+// Read the actual theme so the report follows visual identity changes.
+const css = await readFile('src/app/globals.css', 'utf8');
+const tokenNames = { background: 'bg', sidebar: 'sidebar', surface: 'surface', raised: 'surface-raised', overlay: 'surface-overlay', text: 'text', muted: 'muted', disabled: 'disabled', primary: 'primary', primaryHover: 'primary-hover', accent: 'accent', success: 'success', warning: 'warning', danger: 'danger', info: 'info' };
+for (const [name, token] of Object.entries(tokenNames)) {
+  const value = css.match(new RegExp('--' + token + ':\\s*(#[a-fA-F0-9]{6})'))?.[1];
+  if (!value) throw new Error('Missing CSS color token: ' + token);
+  colors[name] = value;
+}
 const rgb = hex => [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(c => c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4);
 const luminance = hex => {
   const [r, g, b] = rgb(hex);

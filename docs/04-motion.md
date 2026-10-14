@@ -9,22 +9,22 @@ A operação responde imediatamente. Movimento expressivo pertence à apresenta�
 | press | 120 ms | cubic-bezier(.23,1,.32,1) | Escala .97 ao pressionar com ponteiro |
 | dialog | 180 ms | mesma ease-out | Entrada por opacidade; centro estável |
 | toast | 160 ms | mesma ease-out | Aparecimento por opacidade |
-| plate | 5000 ms por direção | cubic-bezier(.77,0,.175,1) | Oscilação decorativa alternada |
+| carouselTransition | 650 ms | cubic-bezier(.23,1,.32,1) | Troca de fotos por opacidade |
 
-Ações por teclado não recebem transformação ou transição de interface. Navegação e check-in não usam animação de entrada. Hover só altera aparência em ponteiros finos. Redução de movimento remove animações e transformações animadas, mantendo uma anilha estática. A landing oferece pausa explícita para a animação contínua.
+Ações por teclado não recebem transformação ou transição de interface. Navegação e check-in não usam animação de entrada. Hover só altera aparência em ponteiros finos. Redução de movimento remove animações e transformações animadas, mantendo o carrossel estático. A tela inicial oferece pausa explícita, controles anterior/próximo e seleção de imagem. O avanço ocorre a cada 6,5 s e pausa durante foco, hover ou aba oculta.
 
 ## Catálogo
 
 | Local / status | Objeto | Gatilho | Duração / loop | Tecnologia / easing | Fallback |
 | --- | --- | --- | --- | --- | --- |
-| Hero / implementado | Anilha escura 20 kg, faces e núcleo | Entrada do hero no viewport | 5 s por direção, loop alternado, pausável | Camadas CSS preserve-3d; ease-in-out | Ícone estático durante carga; anilha estática com redução |
+| Hero / implementado | Fotos locais de academias | Abertura de / ou /site | 6,5 s entre imagens; pausável | Opacidade CSS; ease-out | Primeira imagem estática com redução de movimento |
 | Splash / proposta | Núcleo G/C | Primeira abertura do app | 600 ms, uma vez | Rive ou SVG; ease-out | Logo estático, sem bloquear acesso |
 | Carregamento / proposta | Anilhas que se encaixam | Carga prolongada em área não operacional | 900 ms, loop limitado a 5 s | Lottie/Rive | Skeleton já presente nas rotas web |
 | Check-in / proposta | Catraquinha e anel QR | Validação permitida | 350 ms, uma vez | Rive; ease-out | Ícone e texto imediatos, já implementados |
 | Meta concluída / proposta | Anilha encaixa na barra | Meta rara concluída | 700 ms, uma vez | Three.js ou Rive; ease-out | Badge e toast, disponíveis hoje |
 | Estado vazio / proposta | Kettlebell apoiado | Ausência de dados | Estático ou 2 s, uma vez | SVG com sombra ou asset 3D | Ícone, texto e ação, já implementados |
 
-A anilha atual é profundidade CSS, não um modelo WebGL. Não carrega bibliotecas 3D, texturas ou assets remotos. Seu módulo React é carregado sob demanda; os estilos permanecem na folha global.
+O hero usa imagens locais com Next Image. O componente de anilha CSS permanece no código como recurso anterior, sem uso na tela inicial.
 
 ## Limites propostos para uma versão WebGL
 

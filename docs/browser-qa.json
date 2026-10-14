@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-10-12T21:42:11.183Z",
-  "routes": 22,
+  "checkedAt": "2026-10-14T13:03:06.423Z",
+  "routes": 23,
   "viewports": [
     1440,
     768,
@@ -8,6 +8,10 @@
   ],
   "serverMode": "production",
   "results": [
+    {
+      "name": "1440px / renders without document overflow",
+      "pass": true
+    },
     {
       "name": "1440px /painel renders without document overflow",
       "pass": true
@@ -97,6 +101,10 @@
       "pass": true
     },
     {
+      "name": "768px / renders without document overflow",
+      "pass": true
+    },
+    {
       "name": "768px /painel renders without document overflow",
       "pass": true
     },
@@ -182,6 +190,10 @@
     },
     {
       "name": "768px /site renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px / renders without document overflow",
       "pass": true
     },
     {
@@ -349,7 +361,23 @@
       "pass": true
     },
     {
-      "name": "Reduced motion disables decorative plate animation",
+      "name": "Reduced motion disables carousel transitions and autoplay",
+      "pass": true
+    },
+    {
+      "name": "Root opens home instead of dashboard",
+      "pass": true
+    },
+    {
+      "name": "Carousel next selects second image",
+      "pass": true
+    },
+    {
+      "name": "Carousel supports keyboard navigation",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion keeps carousel stationary",
       "pass": true
     },
     {
