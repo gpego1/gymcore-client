@@ -5109,6 +5109,143 @@ select,input,textarea { background: var(--bg) }
   --duration-landing-feedback: 220ms;
   --duration-carousel-drift: 6500ms
 }
+/* Overview: separate business priorities, analysis and daily operations. */
+.overview-page { padding-bottom: 12px }
+.overview-page .page-heading { margin-bottom: 48px }
+.overview-page .page-heading p { font-size: 13px; max-width: 480px; line-height: 1.7 }
+.overview-section { margin-bottom: 44px }
+.overview-section-heading {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 20px; margin-bottom: 22px
+}
+.overview-section-heading .eyebrow { font-size: 9px; color: var(--info) }
+.overview-section-heading h2 { font-size: 23px; letter-spacing: -.7px; margin-top: 8px }
+.overview-section-heading>.badge { margin-bottom: 3px }
+.overview-section-note { font-size: 11px; color: var(--muted); margin-bottom: 4px }
+.overview-metrics { display: grid; grid-template-columns: minmax(0,1.35fr) repeat(2,minmax(0,1fr)); gap: 22px }
+.overview-metric {
+  display: flex; flex-direction: column; position: relative; min-width: 0;
+  padding: 26px; border: 1px solid var(--border); border-radius: 16px;
+  background: var(--surface); min-height: 244px
+}
+.overview-metric-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--muted) }
+.overview-metric-icon { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; background: var(--surface-raised); color: var(--info); border-radius: 12px }
+.overview-metric-value { display: block; font-size: clamp(30px,2.8vw,42px); font-variant-numeric: tabular-nums; letter-spacing: -1.6px; line-height: 1.2; margin: 22px 0 8px; overflow-wrap: anywhere }
+.overview-metric>p { font-size: 11px; color: var(--muted); line-height: 1.7 }
+.overview-metric-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 24px; margin-top: auto; font-size: 11px; color: var(--info) }
+.overview-metric-footer>span:last-child { display: inline-flex; align-items: center; gap: 8px }
+.overview-metric-revenue { background: linear-gradient(120deg,#173e8c,#11234c); border-color: #3662ae }
+.overview-metric-revenue .overview-metric-value { font-size: clamp(36px,3.3vw,50px); color: #fff }
+.overview-metric-revenue .overview-metric-label,.overview-metric-revenue>p,.overview-metric-revenue .overview-metric-footer { color: #c8dcff }
+.overview-metric-revenue .overview-metric-icon { background: #ffffff12; color: #c8dcff }
+.overview-metric-revenue .overview-metric-footer { flex-wrap: wrap; row-gap: 8px }
+.overview-metric-debt { border-top: 3px solid var(--danger); padding-top: 24px }
+.overview-metric-debt .overview-metric-value { color: var(--danger) }
+.overview-metric-debt .overview-metric-icon { background: #35202b; color: var(--danger) }
+.overview-performance { display: grid; grid-template-columns: minmax(0,1fr) 280px; gap: 24px; align-items: stretch }
+.overview-chart-panel { border-radius: 16px; min-width: 0 }
+.overview-chart-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 28px; border-bottom: 1px solid var(--border); min-height: 93px }
+.overview-chart-header select { width: auto; max-width: 180px; font-size: 11px; background: var(--surface-raised) }
+.overview-chart-tabs { display: inline-flex; gap: 6px; padding: 4px; border: 1px solid var(--border); background: var(--bg); border-radius: 10px }
+.overview-chart-tabs button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 15px; border: 0; border-radius: 7px; background: transparent; font-size: 12px; color: var(--muted) }
+.overview-chart-tabs button[aria-selected=true] { background: var(--primary); color: #fff }
+.overview-chart-content { min-height: 354px }
+.overview-chart-content[hidden] { display: none }
+.overview-chart-content:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px }
+.overview-chart-intro { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 26px 28px 24px; min-height: 94px }
+.overview-chart-intro h3 { font-size: 16px; letter-spacing: -.3px }
+.overview-chart-intro p { margin-top: 6px; font-size: 11px; color: var(--muted); line-height: 1.7 }
+.overview-chart-panel .revenue-chart { padding: 0 28px 20px; height: 230px; gap: 16px }
+.overview-chart-panel .chart-plot svg { height: 190px }
+.overview-chart-panel .chart-axis { font-size: 10px; padding-bottom: 30px }
+.overview-chart-panel .chart-labels { font-size: 11px }
+.overview-chart-panel .chart-legend { padding: 18px 28px; font-size: 11px }
+.overview-chart-panel .chart-legend small { font-size: 10px }
+.overview-chart-panel .frequency-chart { height: 210px; margin: 0 28px 20px; gap: 24px }
+.overview-chart-panel .frequency-track { height: 180px; background: var(--surface-raised) }
+.overview-chart-panel .frequency-chart small { font-size: 11px }
+.overview-chart-panel .frequency-note { padding: 18px 28px; font-size: 11px }
+.overview-pulse { padding: 28px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface) }
+.overview-pulse h3 { font-size: 14px; margin-bottom: 18px }
+.overview-pulse-item { display: flex; align-items: center; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--border) }
+.overview-pulse-icon { display: inline-flex; justify-content: center; align-items: center; width: 38px; height: 38px; border: 1px solid var(--border); border-radius: 10px; color: var(--info); flex-shrink: 0 }
+.overview-pulse-item>div { flex: 1; min-width: 0 }
+.overview-pulse-item>div>span { display: block; color: var(--muted); font-size: 11px }
+.overview-pulse-item strong { display: block; font-size: 28px; letter-spacing: -.8px; font-variant-numeric: tabular-nums; line-height: 1.3; margin-top: 4px }
+.overview-pulse-item small { font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--muted); margin-left: 3px }
+.overview-pulse-item p { font-size: 10px; color: var(--muted); margin-top: 3px }
+.overview-pulse-item>svg { color: var(--info) }
+.overview-pulse-note { display: flex; align-items: flex-start; gap: 8px; color: var(--muted); font-size: 10px; line-height: 1.7; margin-top: 22px }
+.overview-pulse-note svg { margin-top: 2px }
+.overview-routine { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: 24px }
+.overview-routine .panel { border-radius: 16px }
+.overview-routine .panel-heading { padding: 26px 28px 22px }
+.overview-routine .panel-heading h2 { font-size: 17px }
+.overview-routine .panel-heading p { margin-top: 6px; line-height: 1.7 }
+.overview-routine .agenda-preview,.overview-routine .attention-content { padding: 0 28px 22px }
+.overview-agenda-row { padding: 24px 0; gap: 18px; min-height: 90px }
+.overview-agenda-row time { font-size: 12px }
+.overview-agenda-row>div { min-width: 0; flex: 1 }
+.overview-agenda-row strong { font-size: 14px }
+.overview-agenda-row small { font-size: 11px; white-space: normal; overflow-wrap: anywhere }
+.overview-agenda-row .agenda-capacity { flex-shrink: 0; font-size: 14px }
+.overview-agenda-row .agenda-capacity small { font-size: 10px }
+.overview-attention .attention-row { padding: 23px 0; gap: 14px; min-height: 90px }
+.overview-attention .attention-row .avatar { width: 38px; height: 38px; font-size: 11px }
+.overview-attention .attention-row strong { font-size: 13px; overflow-wrap: anywhere }
+.overview-attention .attention-row small { font-size: 11px; line-height: 1.7 }
+.overview-attention .attention-cta { padding: 14px 16px; font-size: 11px; margin-top: 20px }
+.overview-no-debt { display: flex; align-items: flex-start; gap: 10px; padding: 24px 0; color: var(--success); font-size: 13px }
+@media(prefers-reduced-motion:no-preference) {
+  .overview-metric { animation: landing-enter 500ms var(--ease-out) both; transition: transform 180ms var(--ease-out) }
+  .overview-metric:nth-child(2) { animation-delay: 60ms }
+  .overview-metric:nth-child(3) { animation-delay: 120ms }
+}
+@media(hover:hover) and (pointer:fine) {
+  .overview-metric:hover { border-color: var(--info) }
+  .overview-pulse a:hover,.overview-agenda-row:hover { color: var(--info) }
+  .overview-chart-tabs button:not([aria-selected=true]):hover { color: var(--text); background: var(--surface-raised) }
+}
+@media(max-width:1200px) {
+  .overview-metrics { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .overview-metric-revenue { grid-column: 1/-1; min-height: 224px }
+  .overview-performance { grid-template-columns: minmax(0,1fr) }
+  .overview-pulse { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); column-gap: 24px }
+  .overview-pulse h3,.overview-pulse-note { grid-column: 1/-1 }
+  .overview-pulse-item { border-bottom: 0; align-items: flex-start; padding: 8px 0 }
+  .overview-pulse-item strong { font-size: 26px }
+  .overview-routine { grid-template-columns: 1fr }
+}
+@media(max-width:700px) {
+  .overview-page .page-heading { margin-bottom: 34px }
+  .overview-section { margin-bottom: 34px }
+  .overview-section-heading { align-items: flex-start; flex-direction: column; gap: 12px; margin-bottom: 18px }
+  .overview-section-heading h2 { font-size: 22px }
+  .overview-metrics { grid-template-columns: 1fr; gap: 16px }
+  .overview-metric { padding: 22px; min-height: 218px }
+  .overview-metric-debt { padding-top: 20px }
+  .overview-metric-value { font-size: 36px }
+  .overview-metric-revenue .overview-metric-value { font-size: 44px }
+  .overview-chart-header { padding: 18px; flex-wrap: wrap; gap: 14px }
+  .overview-chart-tabs { width: 100% }
+  .overview-chart-tabs button { flex: 1 }
+  .overview-chart-header select { width: 100%; max-width: none }
+  .overview-chart-intro { padding: 22px 18px; flex-direction: column; gap: 10px }
+  .overview-chart-panel .revenue-chart { padding-left: 14px; padding-right: 18px; gap: 8px; height: 220px }
+  .overview-chart-panel .chart-axis { font-size: 9px; min-width: 45px }
+  .overview-chart-panel .chart-plot svg { height: 180px }
+  .overview-chart-panel .chart-legend { padding: 18px; flex-wrap: wrap }
+  .overview-chart-panel .frequency-chart { margin-left: 18px; margin-right: 18px; gap: 12px }
+  .overview-chart-panel .frequency-note { padding: 18px }
+  .overview-pulse { display: block; padding: 24px }
+  .overview-pulse-item { padding: 20px 0; border-bottom: 1px solid var(--border); align-items: center }
+  .overview-pulse-item strong { font-size: 28px }
+  .overview-routine .panel-heading { padding: 22px 20px 18px; flex-wrap: wrap }
+  .overview-routine .agenda-preview,.overview-routine .attention-content { padding: 0 20px 20px }
+  .overview-agenda-row { gap: 12px }
+  .overview-agenda-row strong { font-size: 13px }
+  .overview-agenda-row small { font-size: 10px }
+}
 @keyframes landing-enter {
   from { opacity: 0; transform: translateY(18px) }
   to { opacity: 1; transform: translateY(0) }

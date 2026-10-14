@@ -371,6 +371,34 @@
       "usage": "Offline background",
       "ratio": 4.84,
       "passesNormalText": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#173E8C",
+      "usage": "Overview revenue card",
+      "ratio": 9.98,
+      "passesNormalText": true
+    },
+    {
+      "foreground": "#C8DCFF",
+      "background": "#173E8C",
+      "usage": "Overview revenue card",
+      "ratio": 7.19,
+      "passesNormalText": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#11234C",
+      "usage": "Overview revenue card",
+      "ratio": 15.34,
+      "passesNormalText": true
+    },
+    {
+      "foreground": "#C8DCFF",
+      "background": "#11234C",
+      "usage": "Overview revenue card",
+      "ratio": 11.06,
+      "passesNormalText": true
     }
   ]
 }

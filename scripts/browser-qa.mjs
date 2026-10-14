@@ -4,6 +4,7 @@ import { access as fileAccess, mkdir, mkdtemp, writeFile } from 'node:fs/promise
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { metrics as dashboardMetrics, money as formatMoney, number as formatNumber } from '../src/lib/domain.ts';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 async function availablePort() {
   const socket = createServer();
@@ -170,6 +171,7 @@ try {
     for (const route of routes) {
       await navigate(route);
       record(width + 'px ' + route + ' renders without document overflow', await evaluate('!!document.querySelector("main h1")&&document.documentElement.scrollWidth<=innerWidth'));
+      if (route === '/painel') record(width + 'px overview cards contain their content', await evaluate('Array.from(document.querySelectorAll(".overview-metric,.overview-pulse,.overview-chart-header")).every(e=>e.scrollWidth<=e.clientWidth+1)'));
     }
   }
   await call('Emulation.setDeviceMetricsOverride', {
@@ -213,6 +215,21 @@ try {
   await select('#tenant', 'nord');
   record('Tenant switch replaces dataset', await evaluate('document.body.innerText.includes("Unidade Pinheiros")'));
   await select('#tenant', 'atlas');
+  const expectedMetrics = dashboardMetrics(await stored());
+  record('Overview preserves revenue, active students and debt', await evaluate('JSON.stringify(Array.from(document.querySelectorAll(".overview-metric-value")).map(e=>e.textContent))') === JSON.stringify([formatMoney(expectedMetrics.revenue), formatNumber(expectedMetrics.active), formatMoney(expectedMetrics.debt)]));
+  record('Overview preserves visits, conversion and churn', await evaluate('document.querySelectorAll(".overview-pulse-item").length===3&&document.querySelector(".overview-pulse").innerText.includes(' + JSON.stringify(formatNumber(expectedMetrics.visits)) + ')'));
+  await click('Frequência');
+  record('Frequency tab reveals weekly chart without duplicate visible panels', await evaluate('document.querySelectorAll("[role=tabpanel]:not([hidden])").length===1&&!!document.querySelector("[role=tabpanel]:not([hidden]) .frequency-chart")'));
+  await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'ArrowLeft', code: 'ArrowLeft', windowsVirtualKeyCode: 37 });
+  await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'ArrowLeft', code: 'ArrowLeft', windowsVirtualKeyCode: 37 });
+  await pause(100);
+  record('Dashboard tabs support keyboard selection and focus', await evaluate('document.activeElement.getAttribute("role")==="tab"&&document.activeElement.getAttribute("aria-selected")==="true"&&!!document.querySelector("[role=tabpanel]:not([hidden]) .revenue-chart")'));
+  await select('[name=periodo]', 'trimestre');
+  await until(() => evaluate('new URLSearchParams(location.search).get("periodo")==="trimestre"&&document.querySelectorAll(".revenue-chart .chart-labels span").length===3'));
+  record('Revenue period still updates URL and chart');
+  await click('Frequência');
+  await click('Receita');
+  record('Changing chart tabs preserves selected revenue period', await evaluate('document.querySelector("[name=periodo]").value==="trimestre"'));
   await navigate('/painel/matriculas');
   await fill('[name=name]', 'Teste Evolução');
   await fill('[name=email]', 'qa@example.com');
@@ -337,7 +354,7 @@ try {
   await mkdir(path.join(root, 'docs/screenshots'), {
     recursive: true
   });
-  for (const [route, name, width, height] of [['/painel', 'dashboard', 1440, 1080], ['/site', 'landing', 1440, 1000], ['/', 'inicio-mobile', 390, 844], ['/aluno', 'aluno', 390, 844], ['/recepcao', 'recepcao', 1280, 1000]]) {
+  for (const [route, name, width, height] of [['/painel', 'dashboard', 1440, 1600], ['/painel', 'dashboard-mobile', 390, 1000], ['/site', 'landing', 1440, 1000], ['/', 'inicio-mobile', 390, 844], ['/aluno', 'aluno', 390, 844], ['/recepcao', 'recepcao', 1280, 1000]]) {
     await call('Emulation.setDeviceMetricsOverride', {
       width,
       height,
@@ -347,6 +364,7 @@ try {
     await navigate(route);
     if (route === '/site') await until(() => evaluate('document.querySelector(".gym-slide.is-active img")?.complete'));
     await pause(route === '/site' || route === '/' ? 1100 : 100);
+    if (route === '/painel') await pause(700);
     const screenshot = await call('Page.captureScreenshot', {
       format: 'png'
     });

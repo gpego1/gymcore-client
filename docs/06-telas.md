@@ -2,7 +2,7 @@
 
 ## Layout implementado
 
-Grid por CSS, sem medir layout no render. Gestão: sidebar de 230 px, topbar de 82 px, corpo com padding 36 px e largura máxima de 1520 px. Dashboard usa três indicadores grandes, três secundários e grids 1,85:1 e 1,2:1. Bordas e elevação substituem sombras pesadas.
+Grid por CSS, sem medir layout no render. Gestão: sidebar de 230 px, topbar de 82 px, corpo com padding 36 px e largura máxima de 1520 px. Dashboard organiza o conteúdo em três seções: resumo essencial, análise de desempenho e rotina. Receita é o indicador de maior destaque; alunos e inadimplência têm cards próprios. Receita e frequência compartilham um gráfico com abas acessíveis; visitas, conversão e churn ficam em um painel separado. Bordas e elevação substituem sombras pesadas.
 
 | Largura | Comportamento |
 | --- | --- |
@@ -19,7 +19,7 @@ Prévia do aluno: aparelho de 430 px no desktop, com explicação lateral; ocupa
 | Tela | Hierarquia / comportamento | Código |
 | --- | --- | --- |
 | Login | Marca expressiva; entrada por e-mail demonstrativo e perfil; não pede senha real | login.tsx |
-| Dashboard | 6 indicadores; receita SVG; ritmo; aulas e alertas; exportação CSV | dashboard.tsx |
+| Dashboard | 6 indicadores em seções espaçadas; abas Receita/Frequência com teclado; período na URL; cards com atalhos; aulas e alertas; exportação CSV | dashboard.tsx |
 | Alunos | Resumo, busca, status na URL, tabela, exportação; links por registro | students.tsx |
 | Perfil | Avatar, plano, contatos, ficha fictícia, consentimento e linha do tempo; edição em modal | students.tsx |
 | Matrícula | Stepper de 5 etapas; formulário; resumo lateral; confirmação final | enrollment.tsx |

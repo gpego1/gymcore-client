@@ -45,6 +45,7 @@ for (const [foreground, background, usage] of [['#FFFFFF', colors.primary, 'Prim
   background,
   usage
 });
+for (const background of ['#173E8C', '#11234C']) for (const foreground of ['#FFFFFF', '#C8DCFF']) pairs.push({ foreground, background, usage: 'Overview revenue card' });
 const results = pairs.map(p => ({
   ...p,
   ratio: Number(contrast(p.foreground, p.background).toFixed(2)),

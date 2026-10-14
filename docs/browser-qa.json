@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-14T13:41:04.914Z",
+  "checkedAt": "2026-10-14T14:08:42.461Z",
   "routes": 23,
   "viewports": [
     1440,
@@ -14,6 +14,10 @@
     },
     {
       "name": "1440px /painel renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "1440px overview cards contain their content",
       "pass": true
     },
     {
@@ -109,6 +113,10 @@
       "pass": true
     },
     {
+      "name": "768px overview cards contain their content",
+      "pass": true
+    },
+    {
       "name": "768px /painel/alunos renders without document overflow",
       "pass": true
     },
@@ -198,6 +206,10 @@
     },
     {
       "name": "390px /painel renders without document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px overview cards contain their content",
       "pass": true
     },
     {
@@ -298,6 +310,30 @@
     },
     {
       "name": "Tenant switch replaces dataset",
+      "pass": true
+    },
+    {
+      "name": "Overview preserves revenue, active students and debt",
+      "pass": true
+    },
+    {
+      "name": "Overview preserves visits, conversion and churn",
+      "pass": true
+    },
+    {
+      "name": "Frequency tab reveals weekly chart without duplicate visible panels",
+      "pass": true
+    },
+    {
+      "name": "Dashboard tabs support keyboard selection and focus",
+      "pass": true
+    },
+    {
+      "name": "Revenue period still updates URL and chart",
+      "pass": true
+    },
+    {
+      "name": "Changing chart tabs preserves selected revenue period",
       "pass": true
     },
     {
