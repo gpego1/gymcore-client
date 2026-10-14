@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-14T13:29:52.485Z",
+  "checkedAt": "2026-10-14T13:41:04.914Z",
   "routes": 23,
   "viewports": [
     1440,
@@ -361,11 +361,23 @@
       "pass": true
     },
     {
+      "name": "Home hero has entrance animation",
+      "pass": true
+    },
+    {
+      "name": "Active carousel photo drifts while playing",
+      "pass": true
+    },
+    {
       "name": "Carousel automatically advances while hovered",
       "pass": true
     },
     {
       "name": "Manual pointer navigation preserves automatic rotation",
+      "pass": true
+    },
+    {
+      "name": "Pause also stops photo drift",
       "pass": true
     },
     {
@@ -381,6 +393,14 @@
       "pass": true
     },
     {
+      "name": "Reduced motion removes hero and photo animations",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion keeps all reveal content visible",
+      "pass": true
+    },
+    {
       "name": "Carousel next selects second image",
       "pass": true
     },
@@ -390,6 +410,10 @@
     },
     {
       "name": "Reduced motion keeps carousel stationary",
+      "pass": true
+    },
+    {
+      "name": "Scrolling reveals plan cards",
       "pass": true
     },
     {

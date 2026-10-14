@@ -5070,7 +5070,7 @@ select,input,textarea { background: var(--bg) }
 }
 .gym-carousel-label>span { width: 7px; height: 7px; background: var(--info); border-radius: 50% }
 .gym-carousel-caption { position: absolute; inset: auto 28px 96px; z-index: 2; color: #fff }
-.gym-carousel-caption>span { font: 9px 'Geist Mono',monospace; letter-spacing: 1.4px; color: var(--info) }
+.gym-caption-content>span { font: 9px 'Geist Mono',monospace; letter-spacing: 1.4px; color: var(--info) }
 .landing .gym-carousel-caption h2 { font-size: clamp(28px,3vw,42px); margin: 12px 0 0; letter-spacing: -1.5px }
 .gym-carousel-controls {
   position: absolute; inset: auto 20px 20px; display: flex; align-items: center;
@@ -5101,4 +5101,61 @@ select,input,textarea { background: var(--bg) }
   .gym-carousel-caption { left: 18px; right: 18px }
   .gym-carousel-controls { left: 12px; right: 12px; gap: 5px }
   .gym-carousel-count { display: none }
+}
+
+/* Landing motion: one-time entrances, scroll reveals and restrained feedback. */
+:root {
+  --duration-reveal: 650ms;
+  --duration-landing-feedback: 220ms;
+  --duration-carousel-drift: 6500ms
+}
+@keyframes landing-enter {
+  from { opacity: 0; transform: translateY(18px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+@keyframes gym-photo-drift {
+  from { transform: scale(1) }
+  to { transform: scale(1.055) }
+}
+@media(prefers-reduced-motion:no-preference) {
+  .landing-header { animation: landing-enter 500ms var(--ease-out) both }
+  .hero-copy>* { animation: landing-enter var(--duration-reveal) var(--ease-out) both }
+  .hero-copy>h1 { animation-delay: 60ms }
+  .hero-copy>p { animation-delay: 120ms }
+  .hero-copy>.button-row { animation-delay: 180ms }
+  .hero-copy>.hero-note { animation-delay: 240ms }
+  .landing-hero>.gym-carousel { animation: landing-enter 800ms 100ms var(--ease-out) both }
+  .landing-hero:before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 80% 30%,#2161e81c,transparent 60%);
+    animation: landing-enter 1200ms var(--ease-out) both
+  }
+  .landing [data-reveal] {
+    transition: opacity var(--duration-reveal) var(--ease-out), transform var(--duration-reveal) var(--ease-out)
+  }
+  .landing[data-motion-ready] [data-reveal]:not([data-visible]):not(:focus-within) {
+    opacity: 0; transform: translateY(24px)
+  }
+  .landing-features>[data-reveal]:nth-child(2),.pricing-grid>[data-reveal]:nth-child(2) { transition-delay: 60ms }
+  .landing-features>[data-reveal]:nth-child(3) { transition-delay: 120ms }
+  .landing-student-card[data-reveal] { transition-delay: 80ms }
+  .landing[data-motion-ready] .landing-student-card[data-reveal]:not([data-visible]) { transform: translateY(24px) rotate(5deg) }
+  .landing [data-reveal]:focus-within { transition: none; opacity: 1 }
+  .gym-slide.is-active img {
+    animation: gym-photo-drift var(--duration-carousel-drift) linear both;
+    animation-play-state: paused
+  }
+  .gym-carousel[data-autoplay=true] .gym-slide.is-active img { animation-play-state: running }
+  .gym-carousel[data-autoplay=true] .gym-caption-content { animation: landing-enter 450ms var(--ease-out) both }
+  .landing .button svg,.landing-features>a>span:last-child svg { transition: transform var(--duration-landing-feedback) var(--ease-out) }
+  .landing-features>a:active { scale: .985 }
+}
+@media(prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine) {
+  .landing-features>a[data-visible],.pricing-grid>article[data-visible] {
+    transition: opacity var(--duration-reveal) var(--ease-out), transform var(--duration-landing-feedback) var(--ease-out);
+    transition-delay: 0ms
+  }
+  .landing-features>a[data-visible]:hover,.pricing-grid>article[data-visible]:hover { transform: translateY(-5px) }
+  .landing .button:hover svg,.landing-features>a:hover>span:last-child svg { transform: translateX(3px) }
+  .landing .button:focus-visible svg,.landing-features>a:focus-visible>span:last-child svg { transform: none; transition: none }
 }

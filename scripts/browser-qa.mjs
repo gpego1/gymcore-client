@@ -282,6 +282,8 @@ try {
   const carouselPosition = await evaluate('(()=>{const r=document.querySelector(".gym-carousel").getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+100};})()');
   await call('Input.dispatchMouseEvent', { type: 'mouseMoved', ...carouselPosition });
   const initialSlide = await slideLabel();
+  record('Home hero has entrance animation', await evaluate('getComputedStyle(document.querySelector(".hero-copy h1")).animationName==="landing-enter"'));
+  record('Active carousel photo drifts while playing', await evaluate('getComputedStyle(document.querySelector(".gym-slide.is-active img")).animationPlayState==="running"'));
   await until(async () => await slideLabel() !== initialSlide, 8500);
   record('Carousel automatically advances while hovered');
   const nextPosition = await evaluate(`(()=>{const r=document.querySelector('button[aria-label="Próxima imagem"]').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);
@@ -292,6 +294,7 @@ try {
   await until(async () => await slideLabel() !== manualSlide, 8500);
   record('Manual pointer navigation preserves automatic rotation');
   await click('Pausar');
+  record('Pause also stops photo drift', await evaluate('getComputedStyle(document.querySelector(".gym-slide.is-active img")).animationPlayState==="paused"'));
   const explicitlyPaused = await slideLabel();
   await pause(6700);
   record('Explicit pause stops automatic rotation', explicitlyPaused === await slideLabel());
@@ -305,6 +308,8 @@ try {
   record('Reduced motion disables carousel transitions and autoplay', await evaluate(`getComputedStyle(document.querySelector('.gym-slide')).transitionDuration==='0s'&&!document.querySelector('button[aria-label="Pausar carrossel"]')`));
   await navigate('/');
   record('Root opens home instead of dashboard', await evaluate('location.pathname==="/"&&!!document.querySelector(".gym-carousel")&&!document.querySelector(".app-shell")'));
+  record('Reduced motion removes hero and photo animations', await evaluate('getComputedStyle(document.querySelector(".hero-copy h1")).animationName==="none"&&getComputedStyle(document.querySelector(".gym-slide.is-active img")).animationName==="none"'));
+  record('Reduced motion keeps all reveal content visible', await evaluate('Array.from(document.querySelectorAll("[data-reveal]")).every(e=>getComputedStyle(e).opacity==="1")'));
   await evaluate(`document.querySelector('button[aria-label="Próxima imagem"]').click()`);
   await pause(100);
   record('Carousel next selects second image', await evaluate('document.querySelector(".gym-slide.is-active").getAttribute("aria-label")==="2 de 3"'));
@@ -318,6 +323,9 @@ try {
   await call('Emulation.setEmulatedMedia', {
     features: []
   });
+  await evaluate('document.querySelector("#planos").scrollIntoView()');
+  await until(() => evaluate('Array.from(document.querySelectorAll(".pricing-grid>[data-reveal]")).every(e=>e.dataset.visible==="true"&&getComputedStyle(e).opacity==="1")'));
+  record('Scrolling reveals plan cards');
   if (runtimeErrors.length || consoleErrors.length) console.error(JSON.stringify({
     runtimeErrors,
     consoleErrors
@@ -338,7 +346,7 @@ try {
     });
     await navigate(route);
     if (route === '/site') await until(() => evaluate('document.querySelector(".gym-slide.is-active img")?.complete'));
-    await pause(100);
+    await pause(route === '/site' || route === '/' ? 1100 : 100);
     const screenshot = await call('Page.captureScreenshot', {
       format: 'png'
     });

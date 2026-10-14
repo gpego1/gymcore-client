@@ -2,6 +2,8 @@
 
 ## Linguagem: precisão com peso
 
+A página inicial usa entrada escalonada de 650 ms (intervalos de 60 ms), revelações por IntersectionObserver ao rolar e feedback de hover de 220 ms nos cards. As fotos do carrossel recebem zoom sutil de 1 a 1,055 em 6,5 s; Pausar interrompe também esse efeito. As legendas entram por opacidade e deslocamento de 18 px. O conteúdo permanece visível sem JavaScript e com movimento reduzido; o foco por teclado revela imediatamente os elementos interativos.
+
 A operação responde imediatamente. Movimento expressivo pertence à apresentação, não ao check-in repetido ou às tabelas. A finalidade do movimento é indicar resposta, hierarquia e profundidade.
 
 | Token | Duração | Curva | Aplicação efetiva |

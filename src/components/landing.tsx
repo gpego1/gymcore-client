@@ -1,11 +1,45 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 import { GymCarousel } from './gym-carousel';
 import { Logo, Icon } from './icons';
 import { Badge, Button } from './ui';
 export function Landing() {
-  return <div className="landing">
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const element = root.current;
+    if (!element || !('IntersectionObserver' in window)) return;
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let observer: IntersectionObserver | undefined;
+    const sync = () => {
+      observer?.disconnect();
+      delete element.dataset.motionReady;
+      if (preference.matches) return;
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).dataset.visible = 'true';
+            observer?.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      element.querySelectorAll<HTMLElement>('[data-reveal]').forEach(target => {
+        const bounds = target.getBoundingClientRect();
+        if (bounds.top < window.innerHeight && bounds.bottom > 0) target.dataset.visible = 'true';
+        if (!target.dataset.visible) observer?.observe(target);
+      });
+      element.dataset.motionReady = 'true';
+    };
+    sync();
+    preference.addEventListener('change', sync);
+    return () => {
+      observer?.disconnect();
+      preference.removeEventListener('change', sync);
+      delete element.dataset.motionReady;
+    };
+  }, []);
+  return <div ref={root} className="landing">
     <a href="#landing-main" className="skip-link">Pular para o conteúdo</a>
     <header className="landing-header">
       <Link href="/" aria-label="GymCore, início">
@@ -48,8 +82,8 @@ export function Landing() {
         </div>
       </section>
       <section id="produto" className="landing-product">
-        <div className="eyebrow">UM NÚCLEO. TODA A OPERAÇÃO.</div>
-        <h2>Seu negócio não para.<br />Sua gestão acompanha.</h2>
+        <div className="eyebrow" data-reveal>UM NÚCLEO. TODA A OPERAÇÃO.</div>
+        <h2 data-reveal>Seu negócio não para.<br />Sua gestão acompanha.</h2>
         <div className="landing-features">{[{
             icon: 'dashboard',
             title: 'Decisões com direção.',
@@ -65,7 +99,7 @@ export function Landing() {
             title: 'Acesso sem dúvida.',
             text: 'Feedback imediato e estados claros. A recepção pode focar no acolhimento.',
             href: '/recepcao'
-          }].map((f, i) => <Link key={f.title} href={f.href}>
+          }].map((f, i) => <Link key={f.title} href={f.href} data-reveal>
             <span className="feature-index">0{i + 1}</span>
             <Icon name={f.icon} size={32} />
             <h3>{f.title}</h3>
@@ -75,7 +109,7 @@ export function Landing() {
           </Link>)}</div>
       </section>
       <section id="experiencias" className="landing-experiences">
-        <div>
+        <div data-reveal>
           <div className="eyebrow">CADA PESSOA. SEU PRÓPRIO RITMO.</div>
           <h2>Uma experiência que<br />chega até o treino.</h2>
           <p>Reservas, fichas, check-in e evolução. A prévia web do aluno mostra como a academia pode estar presente em cada conquista.</p>
@@ -85,7 +119,7 @@ export function Landing() {
           </Button>
           <p className="small muted">Protótipo web responsivo. App Flutter previsto no handoff.</p>
         </div>
-        <div className="landing-student-card">
+        <div className="landing-student-card" data-reveal>
           <div className="phone-top">
             <span>9:41</span>
             <Icon name="wifi" size={16} />
@@ -112,9 +146,9 @@ export function Landing() {
         </div>
       </section>
       <section id="planos" className="landing-pricing">
-        <div className="eyebrow">ESCOLHA O PRÓXIMO NÍVEL</div>
-        <h2>Um plano para o seu momento.</h2>
-        <p>Conceitos comerciais ilustrativos. Não há contratação ou cobrança nesta demo.</p>
+        <div className="eyebrow" data-reveal>ESCOLHA O PRÓXIMO NÍVEL</div>
+        <h2 data-reveal>Um plano para o seu momento.</h2>
+        <p data-reveal>Conceitos comerciais ilustrativos. Não há contratação ou cobrança nesta demo.</p>
         <div className="pricing-grid">{[{
             name: 'Essencial',
             description: 'O núcleo da sua operação',
@@ -123,7 +157,7 @@ export function Landing() {
             name: 'Performance',
             description: 'Mais visão. Mais possibilidades.',
             items: ['Tudo do Essencial', 'Leads e régua de cobrança', 'Comissões e experiência do aluno']
-          }].map((p, i) => <article key={p.name} className={i ? 'pricing-featured' : ''}>
+          }].map((p, i) => <article key={p.name} data-reveal className={i ? 'pricing-featured' : ''}>
             <Badge tone={i ? 'info' : 'neutral'}>{i ? 'PARA IR ALÉM' : 'PARA COMEÇAR'}</Badge>
             <h3>{p.name}</h3>
             <p>{p.description}</p>

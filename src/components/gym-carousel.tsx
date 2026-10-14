@@ -40,6 +40,7 @@ export function GymCarousel() {
   };
 
   return <section className="gym-carousel" aria-label="Academia em movimento" aria-roledescription="carrossel"
+    data-autoplay={playing && !focused && !reducedMotion}
     onPointerDownCapture={() => setFocused(false)}
     onFocusCapture={event => setFocused(event.target.matches(':focus-visible'))} onBlurCapture={event => {
       if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
@@ -57,8 +58,10 @@ export function GymCarousel() {
     </div>
     <span className="gym-carousel-label"><span /> GYMCORE / EM MOVIMENTO</span>
     <div className="gym-carousel-caption" aria-live={playing && !focused && !reducedMotion ? 'off' : 'polite'} aria-atomic="true">
-      <span>{slides[active].detail}</span>
-      <h2>{slides[active].title}</h2>
+      <div key={active} className="gym-caption-content">
+        <span>{slides[active].detail}</span>
+        <h2>{slides[active].title}</h2>
+      </div>
     </div>
     <div className="gym-carousel-controls">
       <div className="gym-carousel-dots" aria-label="Escolher imagem">
