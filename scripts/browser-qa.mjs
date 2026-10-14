@@ -278,7 +278,23 @@ try {
   record('Revoked consent hides physical evolution', await evaluate('document.body.innerText.includes("Sua evolução está protegida")'));
   await navigate('/site');
   await until(() => evaluate('document.querySelectorAll(".gym-slide img").length===3&&Array.from(document.querySelectorAll(".gym-slide img")).every(i=>i.complete&&i.naturalWidth>0)'));
+  const slideLabel = () => evaluate('document.querySelector(".gym-slide.is-active").getAttribute("aria-label")');
+  const carouselPosition = await evaluate('(()=>{const r=document.querySelector(".gym-carousel").getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+100};})()');
+  await call('Input.dispatchMouseEvent', { type: 'mouseMoved', ...carouselPosition });
+  const initialSlide = await slideLabel();
+  await until(async () => await slideLabel() !== initialSlide, 8500);
+  record('Carousel automatically advances while hovered');
+  const nextPosition = await evaluate(`(()=>{const r=document.querySelector('button[aria-label="Próxima imagem"]').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);
+  await call('Input.dispatchMouseEvent', { type: 'mousePressed', ...nextPosition, button: 'left', clickCount: 1 });
+  await call('Input.dispatchMouseEvent', { type: 'mouseReleased', ...nextPosition, button: 'left', clickCount: 1 });
+  await pause(100);
+  const manualSlide = await slideLabel();
+  await until(async () => await slideLabel() !== manualSlide, 8500);
+  record('Manual pointer navigation preserves automatic rotation');
   await click('Pausar');
+  const explicitlyPaused = await slideLabel();
+  await pause(6700);
+  record('Explicit pause stops automatic rotation', explicitlyPaused === await slideLabel());
   await call('Emulation.setEmulatedMedia', {
     features: [{
       name: 'prefers-reduced-motion',

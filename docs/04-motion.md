@@ -11,7 +11,7 @@ A operação responde imediatamente. Movimento expressivo pertence à apresenta�
 | toast | 160 ms | mesma ease-out | Aparecimento por opacidade |
 | carouselTransition | 650 ms | cubic-bezier(.23,1,.32,1) | Troca de fotos por opacidade |
 
-Ações por teclado não recebem transformação ou transição de interface. Navegação e check-in não usam animação de entrada. Hover só altera aparência em ponteiros finos. Redução de movimento remove animações e transformações animadas, mantendo o carrossel estático. A tela inicial oferece pausa explícita, controles anterior/próximo e seleção de imagem. O avanço ocorre a cada 6,5 s e pausa durante foco, hover ou aba oculta.
+Ações por teclado não recebem transformação ou transição de interface. Navegação e check-in não usam animação de entrada. Hover só altera aparência em ponteiros finos. Redução de movimento remove animações e transformações animadas, mantendo o carrossel estático. A tela inicial oferece pausa explícita, controles anterior/próximo e seleção de imagem. O avanço ocorre a cada 6,5 s, continua durante hover e cliques nas setas e pausa durante foco por teclado ou aba oculta. A navegação manual reinicia o intervalo; o botão Pausar interrompe a rotação até Retomar.
 
 ## Catálogo
 

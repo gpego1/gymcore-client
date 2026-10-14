@@ -13,7 +13,6 @@ const slides = [
 export function GymCarousel() {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(true);
 
@@ -29,21 +28,20 @@ export function GymCarousel() {
   }, []);
 
   useEffect(() => {
-    if (!playing || hovered || focused || reducedMotion) return;
+    if (!playing || focused || reducedMotion) return;
     const timer = window.setInterval(() => {
       if (!document.hidden) setActive(index => (index + 1) % slides.length);
     }, 6500);
     return () => window.clearInterval(timer);
-  }, [playing, hovered, focused, reducedMotion]);
+  }, [active, playing, focused, reducedMotion]);
 
   const select = (index: number) => {
-    setPlaying(false);
     setActive((index + slides.length) % slides.length);
   };
 
   return <section className="gym-carousel" aria-label="Academia em movimento" aria-roledescription="carrossel"
-    onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-    onFocusCapture={() => setFocused(true)} onBlurCapture={event => {
+    onPointerDownCapture={() => setFocused(false)}
+    onFocusCapture={event => setFocused(event.target.matches(':focus-visible'))} onBlurCapture={event => {
       if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
     }} onKeyDown={event => {
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -58,7 +56,7 @@ export function GymCarousel() {
       </div>)}
     </div>
     <span className="gym-carousel-label"><span /> GYMCORE / EM MOVIMENTO</span>
-    <div className="gym-carousel-caption" aria-live={playing ? 'off' : 'polite'} aria-atomic="true">
+    <div className="gym-carousel-caption" aria-live={playing && !focused && !reducedMotion ? 'off' : 'polite'} aria-atomic="true">
       <span>{slides[active].detail}</span>
       <h2>{slides[active].title}</h2>
     </div>
@@ -68,7 +66,10 @@ export function GymCarousel() {
           aria-current={active === index ? 'true' : undefined} onClick={() => select(index)}><span /></button>)}
       </div>
       <span className="gym-carousel-count">0{active + 1} / 0{slides.length}</span>
-      {!reducedMotion && <button type="button" onClick={() => setPlaying(value => !value)} aria-label={playing ? 'Pausar carrossel' : 'Retomar carrossel'}>{playing ? 'Pausar' : 'Retomar'}</button>}
+      {!reducedMotion && <button type="button" onClick={() => {
+        setFocused(false);
+        setPlaying(value => !value);
+      }} aria-label={playing ? 'Pausar carrossel' : 'Retomar carrossel'}>{playing ? 'Pausar' : 'Retomar'}</button>}
       <button type="button" aria-label="Imagem anterior" onClick={() => select(active - 1)}><Icon name="arrow" size={18} className="reverse" /></button>
       <button type="button" aria-label="Próxima imagem" onClick={() => select(active + 1)}><Icon name="arrow" size={18} /></button>
     </div>
