@@ -8,7 +8,7 @@
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "test": "node --test tests/domain.test.mjs",
+    "test": "node --test tests/domain.test.mjs tests/features.test.mjs",
     "test:browser": "node scripts/browser-qa.mjs",
     "test:contrast": "node scripts/check-contrast.mjs"
   },

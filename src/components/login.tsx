@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { features } from '@/lib/features';
 import { useState } from 'react';
 import { Icon, Logo } from './icons';
 import { Badge, Button, DemoNote } from './ui';
@@ -42,7 +43,7 @@ export function Login() {
             <span>Experiência</span>
             <select name="role" value={role} onChange={e => setRole(e.target.value)}>
               <option value="gestor">Gestão e recepção</option>
-              <option value="aluno">Aluno · prévia web</option>
+              {features.studentArea && <option value="aluno">Aluno · prévia web</option>}
               <option value="recepcao">Terminal de acesso</option>
             </select>
           </label>

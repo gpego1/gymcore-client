@@ -1,3 +1,4 @@
+import { isRouteEnabled } from '@/lib/features';
 import { notFound } from 'next/navigation';
 import { ManagementPage } from '@/components/pages';
 export default async function Page({
@@ -10,6 +11,7 @@ export default async function Page({
   const {
     slug = []
   } = await params;
+  if (!isRouteEnabled('/painel/' + slug.join('/'))) notFound();
   if (slug.length > 2 || slug.length === 2 && slug[0] !== 'alunos' || slug[0] && !['alunos', 'matriculas', 'aulas', 'inadimplencia', 'leads', 'financeiro', 'comissoes', 'pdv'].includes(slug[0])) notFound();
   return <ManagementPage slug={slug} />;
 }

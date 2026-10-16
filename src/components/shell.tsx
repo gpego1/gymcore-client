@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { features, isRouteEnabled } from '@/lib/features';
 import { usePathname } from 'next/navigation';
 import { useState, type ReactNode } from 'react';
 import { Icon, Logo } from './icons';
@@ -43,7 +44,7 @@ export const navigation = [{
   label: 'Ponto de venda',
   href: '/painel/pdv',
   icon: 'bag'
-}];
+}].filter(item => isRouteEnabled(item.href));
 export function Shell({
   children
 }: {
@@ -69,9 +70,9 @@ export function Shell({
         <span>{item.label}</span>{item.label === 'Inadimplência' && state.students.some(s => s.daysLate > 0) && <span className="nav-count">{state.students.filter(s => s.daysLate > 0).length}</span>}</Link>)}</nav>
     <div className="sidebar-bottom">
       <div className="workspace-label">OUTRAS EXPERIÊNCIAS</div>
-      <Link href="/aluno" className="nav-item">
+      {features.studentArea && <Link href="/aluno" className="nav-item">
         <Icon name="phone" size={19} />Área do aluno<Icon name="arrow" size={14} />
-      </Link>
+      </Link>}
       <Link href="/recepcao" className="nav-item">
         <Icon name="tablet" size={19} />Terminal de acesso<Icon name="arrow" size={14} />
       </Link>
@@ -158,20 +159,21 @@ export function Shell({
         </Link>)}</div>
     </Modal>
     <Modal open={notifications} onOpenChange={setNotifications} title="O que acontece na academia" description="Avisos demonstrativos, sem mensagens externas.">
-      <div className="notice-card">
+      {features.classes && <div className="notice-card">
         <Icon name="calendar" />
         <div>
           <strong>Uma semana para ir além</strong>
           <p>A grade de aulas de outubro já está disponível.</p>
         </div>
-      </div>
-      <div className="notice-card">
+      </div>}
+      {features.commissions && <div className="notice-card">
         <Icon name="money" />
         <div>
           <strong>Fechamento do mês</strong>
           <p>Revise as comissões dos professores no painel.</p>
         </div>
-      </div>
+      </div>}
+      {!features.classes && !features.commissions && <p className="muted">Nenhum aviso no momento.</p>}
     </Modal>
   </div>;
 }

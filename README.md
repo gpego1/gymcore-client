@@ -1,5 +1,7 @@
 # GymCore
 
+O recorte atual da release administrativa e as flags para módulos adiados estão em [docs/10-release.md](docs/10-release.md). A lista de rotas abaixo descreve a demo completa; módulos adiados retornam 404 por padrão.
+
 Protótipo web funcional de gestão de academias, construído a partir de [prompt.txt](prompt.txt). Tema escuro, identidade própria e três experiências navegáveis. **Não há conexão com backend ou API de negócio.**
 
 ## Stack

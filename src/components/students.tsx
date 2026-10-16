@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { features } from '@/lib/features';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useMock } from '@/lib/store';
@@ -147,7 +148,7 @@ export function StudentProfile({
         </div>
         <Button variant="ghost" onClick={() => setPrivacy(true)}>Gerenciar consentimento demonstrativo</Button>
       </Panel>
-      <Panel title="Treino atual" description="Ficha A · superiores e core">
+      {features.studentArea && <Panel title="Treino atual" description="Ficha A · superiores e core">
         <div className="exercise-preview">{exercises.map(e => <div key={e.id}>
             <span className="exercise-icon">
               <Icon name="dumbbell" />
@@ -162,7 +163,7 @@ export function StudentProfile({
           <Link href="/aluno/treino">Abrir prévia do treino do aluno<Icon name="arrow" size={16} />
           </Link>
         </Button>
-      </Panel>
+      </Panel>}
     </div>
     <Panel title="Linha do tempo" description="Histórico demonstrativo">
       <ol className="timeline">

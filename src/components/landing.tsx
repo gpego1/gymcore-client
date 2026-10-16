@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { features } from '@/lib/features';
 import { useEffect, useRef } from 'react';
 import { GymCarousel } from './gym-carousel';
 import { Logo, Icon } from './icons';
@@ -47,7 +48,7 @@ export function Landing() {
       </Link>
       <nav aria-label="Apresentação">
         <a href="#produto">O produto</a>
-        <a href="#experiencias">Experiências</a>
+        {features.studentArea && <a href="#experiencias">Experiências</a>}
         <a href="#planos">Planos</a>
       </nav>
       <Button asChild variant="secondary">
@@ -68,9 +69,9 @@ export function Landing() {
               <Link href="/painel">Explorar demonstração<Icon name="arrow" />
               </Link>
             </Button>
-            <Button asChild variant="ghost">
+            {features.studentArea && <Button asChild variant="ghost">
               <Link href="/aluno">Conhecer a área do aluno</Link>
-            </Button>
+            </Button>}
           </div>
           <span className="hero-note">
             <Icon name="shield" size={16} />Demo navegável · sem cadastro ou cobrança</span>
@@ -108,7 +109,7 @@ export function Landing() {
             </span>
           </Link>)}</div>
       </section>
-      <section id="experiencias" className="landing-experiences">
+      {features.studentArea && <section id="experiencias" className="landing-experiences">
         <div data-reveal>
           <div className="eyebrow">CADA PESSOA. SEU PRÓPRIO RITMO.</div>
           <h2>Uma experiência que<br />chega até o treino.</h2>
@@ -144,7 +145,7 @@ export function Landing() {
             <Icon name="user" />
           </div>
         </div>
-      </section>
+      </section>}
       <section id="planos" className="landing-pricing">
         <div className="eyebrow" data-reveal>ESCOLHA O PRÓXIMO NÍVEL</div>
         <h2 data-reveal>Um plano para o seu momento.</h2>
@@ -152,11 +153,11 @@ export function Landing() {
         <div className="pricing-grid">{[{
             name: 'Essencial',
             description: 'O núcleo da sua operação',
-            items: ['Cadastro e matrícula', 'Controle de acesso', 'Agenda e financeiro']
+            items: ['Cadastro e matrícula', 'Controle de acesso', 'Gestão financeira']
           }, {
             name: 'Performance',
             description: 'Mais visão. Mais possibilidades.',
-            items: ['Tudo do Essencial', 'Leads e régua de cobrança', 'Comissões e experiência do aluno']
+            items: ['Tudo do Essencial', features.leads ? 'Leads e régua de cobrança' : 'Acompanhamento de inadimplência', features.studentArea ? 'Experiência do aluno' : 'Indicadores de gestão']
           }].map((p, i) => <article key={p.name} data-reveal className={i ? 'pricing-featured' : ''}>
             <Badge tone={i ? 'info' : 'neutral'}>{i ? 'PARA IR ALÉM' : 'PARA COMEÇAR'}</Badge>
             <h3>{p.name}</h3>

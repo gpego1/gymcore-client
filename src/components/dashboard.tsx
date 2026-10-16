@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { features } from '@/lib/features';
 import { useId, useRef, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useMock } from '@/lib/store';
@@ -93,7 +94,7 @@ export function Dashboard() {
         <aside className="overview-pulse" aria-labelledby="overview-pulse-title">
           <h3 id="overview-pulse-title">Movimento & retenção</h3>
           <div className="overview-pulse-item"><span className="overview-pulse-icon"><Icon name="pulse" size={20} /></span><div><span>Frequência registrada</span><strong>{number(m.visits)} <small>visitas</small></strong></div></div>
-          <Link href="/painel/leads" className="overview-pulse-item"><span className="overview-pulse-icon"><Icon name="lead" size={20} /></span><div><span>Conversão de leads</span><strong>{Math.round(m.conversion)}<small>%</small></strong></div><Icon name="arrow" size={16} /></Link>
+          {features.leads && <Link href="/painel/leads" className="overview-pulse-item"><span className="overview-pulse-icon"><Icon name="lead" size={20} /></span><div><span>Conversão de leads</span><strong>{Math.round(m.conversion)}<small>%</small></strong></div><Icon name="arrow" size={16} /></Link>}
           <div className="overview-pulse-item"><span className="overview-pulse-icon"><Icon name="refresh" size={20} /></span><div><span>Churn da amostra</span><strong>0<small>%</small></strong><p>Sem cancelamentos</p></div></div>
           <p className="overview-pulse-note"><Icon name="shield" size={14} />Dados fictícios, sem integração com backend.</p>
         </aside>
@@ -102,14 +103,14 @@ export function Dashboard() {
 
     <section className="overview-section" aria-labelledby="overview-today-title">
       <div className="overview-section-heading"><div><span className="eyebrow">03 / DO NÚMERO À AÇÃO</span><h2 id="overview-today-title">Seu próximo passo.</h2></div></div>
-      <div className="overview-routine">
-        <Panel title="Acontece hoje" description="A energia que move sua academia" action={<Link className="text-link" href="/painel/aulas">Ver agenda<Icon name="arrow" size={16} /></Link>}>
+      <div className="overview-routine" style={!features.classes ? { gridTemplateColumns: '1fr' } : undefined}>
+        {features.classes && <Panel title="Acontece hoje" description="A energia que move sua academia" action={<Link className="text-link" href="/painel/aulas">Ver agenda<Icon name="arrow" size={16} /></Link>}>
           <div className="agenda-preview">{classes.slice(0, 3).map((item, index) => <Link href="/painel/aulas" className="agenda-row overview-agenda-row" key={item.id}>
             <time>{item.time}</time><span className={'class-marker marker-' + index} />
             <div><strong>{item.name}</strong><small>{item.teacher} · {item.room}</small></div>
             <span className="agenda-capacity">{item.occupied}/{item.capacity}<small>alunos</small></span>
           </Link>)}</div>
-        </Panel>
+        </Panel>}
         <Panel className="overview-attention" title="Pontos de atenção" description="Pequenas ações, grandes resultados" action={<span className="attention-count">{m.overdue}</span>}>
           <div className="attention-content">{overdueStudents.slice(0, 2).map(student => <Link key={student.id} href={'/painel/alunos/' + student.id} className="attention-row">
             <Avatar name={student.name} /><span><strong>{student.name}</strong><small>Mensalidade · {student.daysLate} dias em atraso</small></span><Icon name="arrow" size={16} />
